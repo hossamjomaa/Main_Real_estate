@@ -1,0 +1,378 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin_Panel.master.cs" Inherits="Main_Real_estate.English.Master_Panal.Admin_Panel" %>
+<!DOCTYPE html>
+<html dir="rtl">
+<head runat="server">  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+     <%----------------------------------------------------------------------------------------------------%>
+    
+
+
+    <%------------------------------------------------------------------------------------------------------------%>
+
+
+
+
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+    
+    <style type="text/css">
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+
+
+        .dt-buttons {
+            padding: 10px;
+        }
+
+        .dataTables_wrapper {
+            margin: 10px
+        }
+    </style>
+
+
+
+    
+   <%-- <link href="../CSS/all.min.css" rel="stylesheet" />
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="../CSS/ruang-admin.min.css" rel="stylesheet" />--%>
+    
+    
+        
+    
+
+
+    <link href="../CSS/all-rtl.min.css" rel="stylesheet" />
+    <link href="../CSS/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="../CSS/ruang-admin-rtl.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <title>Ammlak</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    
+    
+        <style type="text/css">
+            * {
+                font-family: 'Cairo', sans-serif;
+            }
+
+
+            .dt-buttons {
+                padding: 10px;
+            }
+
+            .dataTables_wrapper {
+                margin: 10px
+            }
+        </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <ul style="background-color: #efefef;" class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+                <li>
+                    
+                    <span style="padding-top: 94px; margin: 20px;">
+                        <img src="../Main_Application/Main_Image/P_Logo.jpg" style="width: 182px; padding-top: 12px; padding-bottom: 28px;" />
+                    </span>
+                </li>
+                <!-- ----------------------------------------------------------------------------------------------- -->
+                <%--<li class="nav-item">
+                    <a class="nav-link collapsed" href="Add_New_Role.aspx" data-toggle="collapse" data-target="#collapseBootstrap"
+                        aria-expanded="true" aria-controls="collapseBootstrap">
+                        <i class="fa fa-sitemap" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">Add New Role</span>
+                    </a>
+                    <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="Add_New_Role.aspx">Add New Role</a>
+                            <a class="collapse-item" href="#">Roles List</a>
+                        </div>
+                    </div>
+                </li>--%>
+                <!-- ----------------------------------------------------------------------------------------------- -->
+                <li class="nav-item">
+                    <a class="nav-link" href="Owner_List.aspx">
+                        <i class="fa fa-address-card" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">المُلّاك</span>
+                    </a>
+                </li>
+
+
+                <!-- ----------------------------------------------------------------------------------------------- -->
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Zone_List.aspx">
+                        <i class="fa fa-thumb-tack" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">المناطق</span>
+                    </a>
+                </li>
+
+                <!-- ----------------------------------------------------------------------------------------------- -->
+
+                <li class="nav-item" style="display:none">
+                    <a class="nav-link" href="Ownership_Status_List.aspx">
+                        <i class="fa fa-star" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">حالات الملكيات</span>
+                    </a>
+                </li>
+                <!-- ----------------------------------------------------------------------------------------------- -->
+                <li class="nav-item" style="padding-bottom: 10px;">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#BuildingItem" aria-expanded="true"
+                        aria-controls="BuildingItem">
+                        <i class="fa fa-building" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">عناصر الأبنية</span>
+                    </a>
+                    <div id="BuildingItem" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="Building_Type_List.aspx">نوع البناء</a>
+                            <a class="collapse-item" href="Building_Condition_List.aspx">حالة البناء</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- ----------------------------------------------------------------------------------------------- -->
+
+                <li class="nav-item" style="padding-bottom: 10px;">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#UnitItem" aria-expanded="true"
+                        aria-controls="UnitItem">
+                        <i class="fa fa-university" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">عناصر الوحدات</span>
+                    </a>
+                    <div id="UnitItem" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="Unit_Type_List.aspx">نوع الوحدة</a>
+                            <a class="collapse-item" href="Unit_Details_List.aspx">تفاصيل الوحدة</a>
+                            <a class="collapse-item" href="unit_Condition_List.aspx">حالة الوحدة</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item" style="padding-bottom: 10px;">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#TenantUnit" aria-expanded="true"
+                        aria-controls="TenantUnit">
+                        <i class="fa fa-users" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">عناصر المستأجرين</span>
+                    </a>
+                    <div id="TenantUnit" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="Tenant_Type_List.aspx">أنواع المستأجرين</a>
+                            <a class="collapse-item" href="Company_rep_List.aspx" ">ممثلو الشركات</a>
+                            <a class="collapse-item" href="Main_Type_Evaluation_List.aspx" ">الأنواع الرئيسية لتقيم العملاء</a>
+                            <a class="collapse-item" href="Sub_Type_Evaluation_List.aspx" ">الأنواع الفرعية لتقيم العملاء</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item" style="padding-bottom: 10px;">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ContractItem" aria-expanded="true"
+                        aria-controls="ContractItem">
+                        <i class="fas fa-file-contract" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">عناصر العقود</span>
+                    </a>
+                    <div id="ContractItem" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="Contract_Type_List.aspx">نوع العقد</a>
+                            <a class="collapse-item" href="Contract_Template_List.aspx">نموذج العقد</a>
+                            <a style="display:none" class="collapse-item" href="Under_Contract_Type_List.aspx">بموجب عقد</a>
+                            <a class="collapse-item" href="payment_frequency_List.aspx">نوع الدفعات</a>
+                            <a class="collapse-item" href="payment_type_List.aspx">نوع الدفع</a>
+                            
+                        </div>
+                    </div>
+                </li>
+
+
+                 <li class="nav-item" style="padding-bottom: 10px;">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#MaintenanceItems" aria-expanded="true"
+                   aria-controls="MaintenanceItems">
+                    <i class="fa fa-wrench" style="font-size: 18px;"></i>
+                    <span style="font-size: 18px;">عناصر الصيانة</span>
+                </a>
+                <div id="MaintenanceItems" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="Maintenance_Type_List.aspx">الأنواع الرئيسية للصيانة</a>
+                        <a class="collapse-item" href="Maintenance_SubType_List.aspx">الأنواع الفرعية للصيانة</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Requst_Source_List.aspx">
+                        <i class="fa fa-commenting" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">مصادر الطلبات</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item" style="padding-bottom: 10px;">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#AssetItems" aria-expanded="true"
+                   aria-controls="AssetItems">
+                    <i class="fa fa-cubes" style="font-size: 18px;"></i>
+                    <span style="font-size: 18px;">الجرد و المخازن</span>
+                </a>
+                <div id="AssetItems" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="Asset_List.aspx">الأصول</a>
+                        <a class="collapse-item" href="Asset_Type_List.aspx">نوع الأصل</a>
+                        <a class="collapse-item" href="Asset_Condition_List.aspx">حالة الاصل</a>
+                        <a class="collapse-item" href="Asset_Location_List.aspx">مكان الاصل</a>
+                        <a class="collapse-item" href="Inventory_List.aspx">المخزون</a>
+                        <a class="collapse-item" href="contractor_List.aspx">المقاولين</a>
+                    </div>
+                </div>
+            </li>
+
+                <li class="nav-item" style="padding-bottom: 10px;">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ChequeItems" aria-expanded="true"
+                   aria-controls="ChequeItems">
+                    <i class="fa fa-pencil" style="font-size: 18px;"></i>
+                    <span style="font-size: 18px;">عناصر الشيكات</span>
+                </a>
+                <div id="ChequeItems" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="Cheque_Type_List.aspx">نوع الشيك</a>
+                        <a class="collapse-item" href="Bank_List.aspx">المصرف</a>
+                        <a class="collapse-item" href="transformation_Bank_List.aspx">مصارف الحولات</a>
+                    </div>
+                </div>
+            </li>
+
+                <li class="nav-item" style="padding-bottom: 10px;">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ListingItems" aria-expanded="true"
+                   aria-controls="ListingItems">
+                    <i class="fa fa-list-ul" style="font-size: 18px;"></i>
+                    <span style="font-size: 18px;">عناصر القوائم</span>
+                </a>
+                <div id="ListingItems" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="Listing_Type_List.aspx">نوع القائمة</a>
+                        <a class="collapse-item" href="Employee_List.aspx">الموظفين</a>
+                        <a class="collapse-item" href="user_Account_List.aspx">حسابات المستخدمين</a>
+                        <a class="collapse-item" href="Roles_List.aspx">الصلاحيات</a>
+                        <a class="collapse-item" href="Department_List.aspx">الأقسام</a>
+                        <a class="collapse-item" href="Employee_Level_List.aspx">درجة الموظف</a>
+                        <a class="collapse-item" href="Task_Type.aspx">أنواع المهام</a>
+                    </div>
+                </div>
+            </li>
+
+                <%--<li class="nav-item">
+                    <a class="nav-link" href="Tenant_Type_List.aspx">
+                        <i class="fa fa-cogs" style="font-size: 18px;">Transaction</i>
+                    </a>
+                </li>--%>
+              <%--  <li class="nav-item" >
+                    <a class="nav-link" href="Transaction_Type_List.aspx">
+                        <i class="fa fa-cogs" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">Transaction Type</span>
+                    </a>
+                </li>--%>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Website_Info.aspx">
+                        <i class="fa fa-globe" style="font-size: 18px;"></i>
+                        <%--<span style="font-size:18px;">Settings</span>--%>
+                        <span style="font-size: 18px;">الموقع العام</span>
+                    </a>
+                </li>
+
+                
+
+
+
+                 <li class="nav-item" >
+                    <a class="nav-link" href="../Main_Application/DashBoard.aspx">
+                        <i class="fa fa-star" style="font-size: 18px;"></i>
+                        <span style="font-size: 18px;">تطبيق أملاك</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Sidebar -->
+
+
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- TopBar -->
+                <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" style="background-color: #f9f9f9;">
+                    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3" style="color: #5a5c69; border-style: none; font-size: 25px;">
+                        <i class="fa fa-bars">&nbsp;&nbsp;</i>
+                    </button>
+                    <asp:Label ID="Label2" runat="server" Text="اللوحة الرئيسية" Font-Size="40px"></asp:Label>
+                    <ul class="navbar-nav ml-auto">
+                        <li style="margin-top: 14px; margin-left: 2px; padding-right: 100px;">
+                            <div class="form-group" style="margin-right: 4px;">
+                                <%--<asp:Label ID="Label2" runat="server" Text="Master Panel" Font-Size="40px"></asp:Label>--%>
+                            </div>
+                        </li>
+
+            <!-- My Profile Button ................................................................................ -->
+          
+            <li class="nav-item dropdown no-arrow" >
+
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" ;>
+                  
+                  <img src="../Main_Application/Main_Image/user.jpg" class="img-profile rounded-circle" style="max-width: 60px; border-style: solid; border-color: #52a2da; border-width: 3px; height: 44px; width: 44px;" />
+                  <span class="ml-2 d-none d-lg-inline text-white small">
+                      <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#52a2da" Font-Bold="true" Font-Size="25px"></asp:Label></span>
+              </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        الحساب
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        الأعدادات
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                        سجل النشاطات
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">تسجيل خروج</asp:LinkButton>
+                    </a>
+                </div>
+            </li>
+                    </ul>
+                     <!-- My Profile Button ................................................................................ -->
+                 </nav>
+                <!-- Topbar -->
+
+
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="../JS/JSY.js"></script>
+    <script src="../JS/JSY2.js"></script>
+    <script src="../JS/JSY3.js"></script>
+    <script src="../JS/JSY4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+﻿.Radios_Info {
+    width: 150px;
+    height: 150px;
+    border-radius: 30%;
+    border-width: 10px;
+    margin-bottom: 5px;
+    border-color: #52a2da;
+    border-style: solid;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.Radios_Att {
+    width: 150px;
+    height: 135px;
+    border-radius: 10px;
+    border-width: 10px;
+    margin-bottom: 5px;
+    border-color: #d770ad;
+    border-style: solid;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+.main_div {
+    border-style: solid;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Titel {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.Dtl {
+    font-size: 15px;
+}
+
+.Radios_Info img {
+    width: 37px;
+    height: 37px;
+}
+
+.Radios_Att img {
+    width: 37px;
+    height: 37px;
+}
+
+.Buidling_In_Ownership table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 13px !important;
+    padding: 8px !important;
+    text-align: center !important;
+}
+
+.Buidling_In_Ownership th {
+    background-color: #52a2da;
+    color: #ffffff;
+}
+
+/*table.scroll {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.scroll tbody, .scroll thead {
+    display: block;
+}
+
+    .scroll thead tr th {
+        height: 30px;
+        line-height: 30px;
+    }
+
+.scroll tbody {
+    height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+    .scroll tbody td, thead th {
+        width: 43%;
+        border-right: 1px solid black;
+    }*/

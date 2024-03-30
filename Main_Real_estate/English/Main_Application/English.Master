@@ -1,0 +1,660 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="English.master.cs" Inherits="Main_Real_estate.English.English" %>
+
+<!DOCTYPE html>
+
+<html runat="server" id="html" dir="rtl">
+<head runat="server">
+
+
+
+
+
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/sunny/jquery-ui.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var icons = {
+                header: "ui-icon-circle-arrow-e",
+                activeHeader: "ui-icon-circle-arrow-s"
+            };
+            $("#accordion").accordion({
+                icons: icons
+            });
+            $("#toggle").button().click(function () {
+                if ($("#accordion").accordion("option", "icons")) {
+                    $("#accordion").accordion("option", "icons", null);
+                } else {
+                    $("#accordion").accordion("option", "icons", icons);
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <title>Amlak</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+
+
+
+    <link href="https://cdn.syncfusion.com/20.2.0.43/js/web/flat-azure/ej.web.all.min.css" rel="stylesheet" />
+
+		<script src="https://cdn.syncfusion.com/js/assets/external/jquery-3.3.1.min.js"></script>
+
+		<script src="https://cdn.syncfusion.com/js/assets/external/jquery.easing.1.3.min.js"></script>
+
+		<script src="https://cdn.syncfusion.com/js/assets/external/jquery.globalize.min.js"></script>
+
+		<script src="https://cdn.syncfusion.com/js/assets/external/jsrender.min.js"></script>
+
+		<script src="https://cdn.syncfusion.com/20.2.0.43/js/web/ej.web.all.min.js"></script>
+
+		<script src="https://cdn.syncfusion.com/20.2.0.43/js/common/ej.webform.min.js"></script>
+
+
+
+
+
+
+
+
+    <%--<link id="link1" runat="server" href="../CSS/all.min.css" rel="stylesheet"  />
+    <link id="link2" runat="server"  href="../CSS/bootstrap.min.css" rel="stylesheet"  />
+    <link id="link3" runat="server"  href="../CSS/ruang-admin.min.css" rel="stylesheet"  />--%>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+
+
+    <link id="link4" runat="server"  href="../CSS/all-rtl.min.css" rel="stylesheet" />
+    <link id="link5" runat="server"  href="../CSS/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link runat="server"  href="../CSS/ruang-admin-rtl.min.css" rel="stylesheet" />
+    <link runat="server"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap4.min.css"/>
+
+
+<%--    <script src="../JS/JSY5.js"></script>
+    <script src="../JS/chart-area-demo.js"></script>--%>
+    
+       <%-- <script src="../JS/JSY.js"></script>--%>
+<%--   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--%>
+    <script src="../JS/JSY2.js"></script>
+    <script src="../JS/JSY3.js"></script>
+    <script src="../JS/JSY4.js"></script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    
+    
+    <style type="text/css">
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+
+
+        .dt-buttons {
+            padding: 10px;
+        }
+
+        .dataTables_wrapper {
+            margin: 10px
+        }
+
+        .fittclass{
+            font-size:8px ;
+            width:fit-content;
+            font-weight:bold;
+        }
+    </style>
+     
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color:#efefef;">
+    <form id="form1" runat="server">
+
+        <div id="wrapper" >
+            <!-- Sidebar -->
+            
+            <ul style="background-color:#efefef; " class="navbar-nav sidebar sidebar-light accordion fittclass" id="accordionSidebar"  >
+                <li>
+                    
+                    <span style="padding-top:94px; margin:7px; " >
+                        <img src="Main_Image/P_Logo.jpg" style="width:182px; padding-top: 12px;     padding-bottom: 28px;" />
+                        
+                    </span>
+                </li>
+ <!-- ----------------------------------------------------------------------------------------------- -->     
+      <li class="nav-item active" style="color:red; padding-bottom:10px;" runat="server" id="DashBoard_Div">
+        <a class="nav-link" href="DashBoard.aspx" style="color:#52a2da;">
+          <i class="fa fa-tachometer" style="color:#52a2da; font-size:18px;"></i>
+          <%--<span style="color:#52a2da; font-size:18px;">Dashboard</span>--%>
+            <span style="color:#52a2da; font-size:20px;">لوحة المؤشرات</span>
+        </a>
+
+      </li>
+<!-- ----------------------------------------------------------------------------------------------- -->
+
+                
+                <li class="nav-item" style="padding-bottom: 10px;" runat="server" id="Ownership_Div">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#OwnershipReport" aria-expanded="true"
+                   aria-controls="OwnershipReport">
+                    <i class="fa fa-home" style="font-size: 18px;"></i>
+                    <span style="font-size: 18px;">الملكيات</span>
+                </a>
+                <div id="OwnershipReport" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="Excel_report_New.aspx">كشف الملكيات الشامل</a>
+                        <a class="collapse-item" href="Excel_Report.aspx">كشف بملكية واحدة</a>
+                        <%--<a class="collapse-item" href="Test_4.aspx?Id=1">كشف الملكيات</a>
+                        <a class="collapse-item" href="Test_4.aspx?Id=2">عمليات الملكيات</a>
+                        <a class="collapse-item" href="Test_4.aspx?Id=3">القيم العقارية</a>--%>
+                        <a class="collapse-item" href="OS_B_U_Arcive.aspx">أرشيف الملكيات</a>
+                        <a class="collapse-item" href="M_Ownership_List.aspx">الملكيات المرهونة عقارياً</a>
+
+                        <hr />
+
+                        <a class="collapse-item" href="Detais_All_Ownership.aspx" style="display:none;"> الملكيات</a>
+                        <a class="collapse-item" href="Ownership_List.aspx"> الملكيات</a>
+                        <a class="collapse-item" href="Building_List.aspx">الأبنية</a>
+                        <a class="collapse-item" href="Units_List.aspx">الوحدات</a>
+
+                    </div>
+                </div>
+            </li>
+      <!-- ----------------------------------------------------------------------------------------------- -->
+      <li class="nav-item" style="padding-bottom:10px; " runat="server" id="Contract_Div">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+          aria-controls="collapseTable">
+          <i class="fas fa-fw fa-table" style="font-size:18px;"></i>
+          <%--<span style="font-size:18px;">Contract</span>--%>
+            <span style="font-size:18px;">التعاقد</span>
+        </a>
+        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Contract</h6>
+            <%--<a class="collapse-item" href="#">Add New Contract</a>
+            <a class="collapse-item" href="#">All Contract</a>--%>
+             <%-- <a class="collapse-item" href="Add-Contract.aspx">إبرام عقد جديد</a>--%>
+            <a class="collapse-item" href="Contract_List.aspx">كافة العقود</a>
+              <a class="collapse-item" href="New_Rental_Disclosure.aspx">كشف المؤجرات </a>
+              <a class="collapse-item" href="Contract_Arcive.aspx">أرشيف العقود</a>
+              
+          </div>
+        </div>
+      </li>
+
+
+
+
+                <li class="nav-item" style="padding-bottom: 10px;" runat="server" id="Tenant_Div">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tenanatRelation" aria-expanded="true"
+                        aria-controls="tenanatRelation">
+                        <i class="fa fa-users" style="font-size: 18px;"></i>
+                        <%--<span style="font-size: 18px;">Inventory</span>--%>
+                        <span style="font-size: 18px;">شؤون العملاء</span>
+                    </a>
+                    <div id="tenanatRelation" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="Tenant_List.aspx">قائمة المستأجرين</a>
+                            <a class="collapse-item" href="Tenant_Disclosure.aspx">كشف المستأجرين</a>
+                            <a class="collapse-item" href="Contact_With_Tenant.aspx">الإشعارات و  المراسلات</a>
+                            <a class="collapse-item" href="Tenant_Evaluation.aspx">تصنيف العملاء  </a>
+                        </div>
+                    </div>
+                </li>
+
+
+
+                 <li class="nav-item" style="padding-bottom:10px; " runat="server" id="complaintreport_Div">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#complaintreportrequest" aria-expanded="true"
+          aria-controls="complaintreportrequest">
+          <i class="fa fa-flag-checkered" style="font-size:18px;"></i>
+          <%--<span style="font-size:18px;">Contract</span>--%>
+            <span style="font-size:18px;">إدارة الاصول</span>
+        </a>
+        <div id="complaintreportrequest" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Contract</h6>
+            <%--<a class="collapse-item" href="#">Add New Contract</a>
+            <a class="collapse-item" href="#">All Contract</a>--%>
+              <%--<a class="collapse-item" href="Add_complaint_report_request.aspx">إضافة بلاغ أو شكوى</a>--%>
+            <a class="collapse-item" href="complaint_report_request_List.aspx">كافة الطلبات</a>
+              <a class="collapse-item" href="Periodec_Maintenance.aspx">الصيانة الدورية</a>
+              <hr />
+              <a class="collapse-item" href="Pickup_Delivery.aspx">عملية إستلام / تسليم وحدة</a>
+              <a class="collapse-item" href="Pickup_Delivery_PDF.aspx">كشوفات إستلام / تسليم وحدة</a>
+              <hr />
+              <a class="collapse-item" href="Maintenence_Templet.aspx">عملية رقابة دورية للعقار</a>
+              <a class="collapse-item" href="Maintenance_Templete_PDF.aspx">كشوفات الرقابة دورية للعقار</a>
+          </div>
+        </div>
+      </li>
+
+
+                
+
+
+
+
+
+                 <li class="nav-item" style="padding-bottom: 10px; display:none;">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#InventoryItems" aria-expanded="true"
+                       aria-controls="InventoryItems">
+                        <i class="fa fa-archive" style="font-size: 18px;"></i>
+                        <%--<span style="font-size: 18px;">Inventory</span>--%>
+                        <span style="font-size: 18px;">المخازن</span>
+                    </a>
+                    <div id="InventoryItems" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <%--<a class="collapse-item" href="Asset_List.aspx">Aseets</a>--%>
+                            <a class="collapse-item" href="Asset_List.aspx">الأصول</a>
+                            <%--<a class="collapse-item" href="Building_Condition_List.aspx">Building Condition</a>--%>
+                        </div>
+                    </div>
+                </li>
+
+
+      <%--<li class="nav-item" style="padding-bottom:10px;">
+        <a class="nav-link" href="#">
+          <i class="fa fa-archive" style="font-size:18px;"></i>
+          <span style="font-size:18px;">Inventory</span>
+        </a>
+      </li>--%>
+
+      <li class="nav-item" style="padding-bottom:10px; display:none; ">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
+          aria-controls="collapsePage">
+          <i class="fa fa-list-ul" style="font-size:18px;"></i>
+          <%--<span style="font-size:18px;">Listing(Marketing)</span>--%>
+            <span style="font-size:18px;">قائمة</span>
+        </a>
+        <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Listing </h6>
+            <a class="collapse-item" href="#">Listing 1</a>
+            <a class="collapse-item" href="#">Listing 2</a>
+            <a class="collapse-item" href="#">Listing 3</a>
+            <a class="collapse-item" href="#">Listing 4</a>
+          </div>
+        </div>
+      </li>
+
+
+      <%--  <li class="nav-item" style="padding-bottom:10px;" runat="server" id="Tenant_Div">
+        <a class="nav-link" href="Tenant_List.aspx">
+          <i class="fa fa-users" style="font-size:18px;"></i>
+          
+            <span style="font-size:18px;">علاقات المستأجرين</span>
+        </a>
+      </li>--%>
+
+
+                 <li class="nav-item" style="padding-bottom: 10px;" runat="server" id="Income_Expensess_Div">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Income_Expenses" aria-expanded="true"
+                       aria-controls="Income_Expenses">
+                        <i class="fa fa-sort-amount-desc" style="font-size: 16px;"></i>
+                        <%--<span style="font-size: 18px;">Inventory</span>--%>
+                        <span style="font-size: 18px;">التحصيل</span>
+                    </a>
+                    <div id="Income_Expenses" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="All_Income.aspx">كشف التحصيل المالي</a>
+                            <a class="collapse-item" href="Incomes.aspx">عمليات التحصيل المالي</a>
+                            <a class="collapse-item" href="Income_New.aspx?Cq_T_Ca=1&Collection=1&Singel_Multi=1">عمليات التحصيل (جديد)</a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class="nav-item" style="padding-bottom: 10px;" runat="server" id="Financial_Statements_Div">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Financial_statements" aria-expanded="true"
+                       aria-controls="Financial_statements">
+                        <i class="fa fa-bar-chart" style="font-size: 16px;"></i>
+                        <%--<span style="font-size: 18px;">Inventory</span>--%>
+                        <span style="font-size: 18px;">البيانات المالية</span>
+                    </a>
+                    <div id="Financial_statements" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="expenses.aspx">البيانات المالية</a>
+                            <a class="collapse-item" href="Real_Estate_Investment.aspx">الإستثمار العقاري</a>
+                        </div>
+                    </div>
+                </li>
+
+                 
+                <li class="nav-item"  runat="server" id="Markting">
+                    <a class="nav-link" href="Website_Infoo.aspx" >
+                        <i class="fa fa-globe" style="font-size: 18px;"></i>
+                        <%--<span style="font-size:18px;">Settings</span>--%>
+                        <span style="font-size: 18px;">التسويق</span>
+                    </a>
+                </li>
+
+
+
+                <li class="nav-item" style="padding-bottom: 10px;" runat="server" id="Task_Managements_Div">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Task_Management" aria-expanded="true"
+                       aria-controls="Task_Management">
+                        <i class="fa fa-tasks" style="font-size: 20px;"></i>
+                        <%--<span style="font-size: 18px;">Inventory</span>--%>
+                        <span style="font-size: 18px;">إدارة المهام</span>
+                    </a>
+                    <div id="Task_Management" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="Task_List.aspx">كافة المهام</a>
+                            <a class="collapse-item" href="Add_Task.aspx">إضافة مهمة جديدة</a>
+                        </div>
+                    </div>
+                </li>
+
+                 <li class="nav-item"  runat="server" id="lists_Div">
+                    <a class="nav-link" href="Missing_Fields.aspx">
+                        <i class="fa fa-list-alt" style="font-size: 18px;"></i>
+                        <%--<span style="font-size: 18px;">Master Panel</span>--%>
+                        <span style="font-size: 18px;">كشف النواقص</span>
+                    </a>
+                </li>
+      
+
+
+
+                <li class="nav-item" style="top:80px" runat="server" id="Sitting_Div">
+                    <a class="nav-link" href="../Master_Panal/Master_Home.aspx">
+                        <i class="fa fa-minus-circle" style="font-size: 18px;"></i>
+                        <%--<span style="font-size: 18px;">Master Panel</span>--%>
+                        <span style="font-size: 18px;">إعدادات النظام</span>
+                    </a>
+                </li>
+
+
+                
+
+                
+
+
+
+
+
+    </ul>
+            <!-- Sidebar -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- TopBar -->
+                 <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" style="background-color:#f9f9f9;">
+                      <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3" style="color:#5a5c69; border-style:none; font-size:25px;" > 
+                        <i class="fa fa-bars">&nbsp;&nbsp;</i>
+                          
+              
+                      </button>
+                     <%--<a href="DashBoard.aspx" style="font-size:30px; font-weight:100;">Dashboard</a>--%>
+                     <%--<a href="DashBoard.aspx" style="font-size:30px; font-weight:100;">لوحة القيادة</a>--%>
+
+
+
+
+                      <ul class="navbar-nav ml-auto" >
+              
+
+
+
+                          <li  style="margin-top: 14px; margin-left: 200px;     padding-right: 100px;" >
+                              <div class="form-group" style="margin-right: 4px;">
+              <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" Visible="false" Width="400px" BorderColor="#52a2da" BorderStyle="Solid"></asp:TextBox>
+              </div>
+            </li>
+
+
+              <%--<li class="nav-item dropdown no-arrow mx-1" style="top:25px; right:40px;"">
+                  <select name="cars" id="cars" style="width:100px;     border-radius: 19px;" runat="server" onserverchange="EnAr">
+                    <option value="En">English</option>
+                    <option value="Ar">Arabic</option>
+
+                </select>
+              </li>--%>
+
+
+
+
+                          <%--<li class="nav-item dropdown no-arrow">
+
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown1" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" ;>
+                  
+                                <img src="Main_Image/user.jpg" class="img-profile rounded-circle"  style="max-width: 60px; border-style:solid; border-color:#52a2da; border-width:3px; height:44px; width:44px;" />
+                            <span class="ml-2 d-none d-lg-inline text-white small">
+                                <asp:Label ID="Label2" runat="server" Text="language" ForeColor="#52a2da" Font-Bold="true" Font-Size="25px"></asp:Label></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                                    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="Arabic_Click">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Arabic
+                                    </asp:LinkButton>
+                                </a>
+                                  <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                                    <asp:LinkButton ID="LinkButton3" runat="server" OnClick="English_Click">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        English
+                                    </asp:LinkButton>
+                                </a>
+                            </div>
+                        </li>--%>
+
+
+            <!-- Notification Button ................................................................................ -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="color:#52a2da; border-style:solid; border-color:#52a2da; width:35px; height:35px; margin-top:22px; border-radius:20px;     padding-left: 8px;">
+                <i class="fas fa-bell fa-fw"></i>
+                <span class="badge badge-danger badge-counter" runat="server" id="Notification_Span" style="top:10px;left:25px;width:30px; height:33px">
+                    <asp:Label ID="lbl_Notification_Numberl" runat="server" Font-Size="25px"></asp:Label>
+                </span>
+              </a>
+
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" style="top: 55px;">
+                    <h3 class="dropdown-header">الإشعارات</h3>
+                    <div class="drop-scroll" style="width: 350px;">
+                        <ul class="media-list">
+                            <asp:Repeater ID="Notification_Repeater" runat="server">
+                                <ItemTemplate>
+                                    <li class="media notification-message">
+                                        <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click" CommandArgument='<%# Eval("Task_Management_ID")%>'>
+                                                <div class="media-left">
+                                                    <span class="avatar">
+													    <img alt="John Doe" src="Main_Image/Notification.png"class="img-responsive img-circle" style="width:20px; height:20px;">
+												    </span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <p class="m-0 noti-details">
+                                                        <span class="noti-title" style="font-size:20px; font-weight:bold"><%#Eval("Task_Type")%></span><br />
+                                                        <span > <%#Eval("Task_Descrioption")%></span>
+                                                    </p>
+                                                </div>
+                                        </asp:LinkButton>
+                                    </li>
+                                    <hr />
+
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- Notification Button ................................................................................ -->
+
+
+
+
+
+
+
+
+
+
+            <!-- Message Button ................................................................................ -->
+            <li class="nav-item dropdown no-arrow mx-4">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" color:#52a2da; border-style:solid; border-color:#52a2da; width:38px; height:35px; margin-top:22px; border-radius:20px; padding-left: 9px;">
+                <i class="fa fa-users"></i>
+                <span class="badge badge-warning badge-counter" runat="server" id="T_Notification_Span" style="top:10px;left:25px;width:30px; height:33px;">
+                    <asp:Label ID="T_Notification_NO" runat="server" Font-Size="25px"></asp:Label>
+                </span>
+              </a>
+
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                  <h6 class="dropdown-header">إشعارات العملاء</h6>
+                  <div class="drop-scroll" style="width: 350px;">
+                        <ul class="media-list">
+                            <asp:Repeater ID="T_Notification_Repeater" runat="server">
+                                <ItemTemplate>
+                                    <li class="media notification-message">
+                                        <asp:LinkButton ID="T_Notification_Link" runat="server" OnClick="T_Notification_Link_Click" CommandArgument='<%# Eval("Tenant_Notification_Id")%>'>
+                                                <div class="media-left">
+                                                    <span class="avatar">
+													    <img alt="John Doe" src="Main_Image/Maintenance_logo.png"class="img-responsive img-circle" style="width:20px; height:20px;">
+												    </span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <p class="m-0 noti-details">
+                                                        <span >( <%#Eval("Request_Classification")%> )</span>
+                                                        <span >من العميل :</span>
+                                                        <span >( <%#Eval("Tenants_Arabic_Name")%> )</span>
+                                                        <br />
+                                                        <span style="font-size:10px"> <%#Eval("From_Whoo")%></span>
+                                                    </p>
+                                                </div>
+                                        </asp:LinkButton>
+                                    </li>
+                                    <hr />
+
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </div>
+              </div>
+            </li>
+            <!-- Message Button ................................................................................ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- My Profile Button ................................................................................ -->
+          
+            <li class="nav-item dropdown no-arrow">
+
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" ;>
+                  
+                  <img src="Main_Image/user.jpg" runat="server" id="user_Photo" class="img-profile rounded-circle"  style="max-width: 60px; border-style:solid; border-color:#52a2da; border-width:3px; height:44px; width:44px;" />
+                <span class="ml-2 d-none d-lg-inline text-white small">
+                    <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#52a2da" Font-Bold="true" Font-Size="25px"></asp:Label></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    <%--Profile--%>
+                    الحساب
+                </a>
+                  <a class="dropdown-item" href="#">
+                      <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                      <%--Settings--%>
+                      إعدادات الحساب 
+                  </a>
+                  <a class="dropdown-item" href="#">
+                      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                      <%--Activity Log--%>سجل النشاطات
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                      <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">تسجيل الخروج</asp:LinkButton>
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      
+                  </a>
+              </div>
+            </li>
+                      </ul>
+                     <!-- My Profile Button ................................................................................ -->
+                 </nav>
+                <!-- Topbar -->
+
+
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+<%--    <script src="../JS/JSY.js"></script>
+    <script src="../JS/JSY2.js"></script>
+    <script src="../JS/JSY3.js"></script>
+    <script src="../JS/JSY4.js"></script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>--%>
+
+    
+    <script src="../JS/JSY4.js"></script>
+
+
+</body>
+</html>

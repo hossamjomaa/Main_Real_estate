@@ -1,0 +1,2730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2CFA3BD9-9F8E-4CB9-8EDA-658E2C377C2E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Main_Real_estate</RootNamespace>
+    <AssemblyName>Main_Real_estate</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44388</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.3\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.29\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.AspNet.20.3.0.52\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocIO.AspNet.20.3.0.52\lib\net46\Syncfusion.DocIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.EJ, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.Base.20.3.0.52\lib\net46\Syncfusion.EJ.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.EJ.Export, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.Base.20.3.0.52\lib\net46\Syncfusion.EJ.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.EJ.Web, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.AspNet.20.3.0.52\lib\net46\Syncfusion.EJ.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.20.3.0.52\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Web.Base.20.3.0.52\lib\net46\Syncfusion.Linq.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.AspNet.20.3.0.52\lib\net46\Syncfusion.OfficeChart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.AspNet.20.3.0.52\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Presentation.Base, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Presentation.AspNet.20.3.0.52\lib\net46\Syncfusion.Presentation.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=20.3460.0.52, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.XlsIO.AspNet.20.3.0.52\lib\net46\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.29\lib\net48\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.29\lib\net48\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ej\mobile\android-theme\ej.mobile.android-core.css" />
+    <Content Include="Content\ej\mobile\android-theme\ej.mobile.android-core.min.css" />
+    <Content Include="Content\ej\mobile\android-theme\ej.mobile.android.css" />
+    <Content Include="Content\ej\mobile\android-theme\ej.mobile.android.min.css" />
+    <Content Include="Content\ej\mobile\ej.mobile.all.css" />
+    <Content Include="Content\ej\mobile\ej.mobile.all.min.css" />
+    <Content Include="Content\ej\mobile\flat-theme\ej.mobile.flat-core.css" />
+    <Content Include="Content\ej\mobile\flat-theme\ej.mobile.flat-core.min.css" />
+    <Content Include="Content\ej\mobile\flat-theme\ej.mobile.flat-theme.css" />
+    <Content Include="Content\ej\mobile\flat-theme\ej.mobile.flat-theme.min.css" />
+    <Content Include="Content\ej\mobile\images\ejmmobilefonts.svg" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_android_dark.GIF" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_android_light.GIF" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_ios7_dark.gif" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_ios7_light.gif" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_windows.GIF" />
+    <Content Include="Content\ej\mobile\images\PullToRefresh\PtR_winrt.GIF" />
+    <Content Include="Content\ej\mobile\images\radialmenu\androidback.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\androidradial.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\flatback.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\flatradial.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\ios7back.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\ios7radial.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\windowsback.png" />
+    <Content Include="Content\ej\mobile\images\radialmenu\windowsradial.png" />
+    <Content Include="Content\ej\mobile\images\scrollpanel\pullarrow.png" />
+    <Content Include="Content\ej\mobile\images\scrollpanel\refreshing-ios-light.gif" />
+    <Content Include="Content\ej\mobile\images\waitingpopup\waitingpopup_android.GIF" />
+    <Content Include="Content\ej\mobile\images\waitingpopup\waitingpopup_ios7.gif" />
+    <Content Include="Content\ej\mobile\images\waitingpopup\waitingpopup_windows.GIF" />
+    <Content Include="Content\ej\mobile\images\waitingpopup\waitingpopup_winrt.GIF" />
+    <Content Include="Content\ej\mobile\ios7-theme\ej.mobile.ios7-core.css" />
+    <Content Include="Content\ej\mobile\ios7-theme\ej.mobile.ios7-core.min.css" />
+    <Content Include="Content\ej\mobile\ios7-theme\ej.mobile.ios7.css" />
+    <Content Include="Content\ej\mobile\ios7-theme\ej.mobile.ios7.min.css" />
+    <Content Include="Content\ej\mobile\windows-theme\ej.mobile.windows-core.css" />
+    <Content Include="Content\ej\mobile\windows-theme\ej.mobile.windows-core.min.css" />
+    <Content Include="Content\ej\mobile\windows-theme\ej.mobile.windows.css" />
+    <Content Include="Content\ej\mobile\windows-theme\ej.mobile.windows.min.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.theme.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.theme.min.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\checkedtick.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\rating-star.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\slider-tick.png" />
+    <Content Include="Content\ej\web\bootstrap-theme\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\common-images\darktheme\colorpicker_dark.png" />
+    <Content Include="Content\ej\web\common-images\diagram\diagram_context.png" />
+    <Content Include="Content\ej\web\common-images\diagram\diagram_context1.png" />
+    <Content Include="Content\ej\web\common-images\diagram\Rotate.cur" />
+    <Content Include="Content\ej\web\common-images\documenteditor\cellbottomalignment.svg" />
+    <Content Include="Content\ej\web\common-images\documenteditor\cellcenteralignment.svg" />
+    <Content Include="Content\ej\web\common-images\documenteditor\celltopalignment.svg" />
+    <Content Include="Content\ej\web\common-images\documenteditor\tablecenteralignment.svg" />
+    <Content Include="Content\ej\web\common-images\documenteditor\tableleftalignment.svg" />
+    <Content Include="Content\ej\web\common-images\documenteditor\tablerightalignment.svg" />
+    <Content Include="Content\ej\web\common-images\ejicons.svg" />
+    <Content Include="Content\ej\web\common-images\fileexplorer\file_icons.png" />
+    <Content Include="Content\ej\web\common-images\grid\dropPointer.cur" />
+    <Content Include="Content\ej\web\common-images\kanban\nouser.svg" />
+    <Content Include="Content\ej\web\common-images\lighttheme\colorpicker_light.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Bootom.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Bootom_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Left.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Left_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Right.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Right_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Top.png" />
+    <Content Include="Content\ej\web\common-images\maps\Arrow_Top_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Bar.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_hover_lime.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_hover_saffron.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_lime.png" />
+    <Content Include="Content\ej\web\common-images\maps\Home_saffron.png" />
+    <Content Include="Content\ej\web\common-images\maps\Navicatior.png" />
+    <Content Include="Content\ej\web\common-images\maps\Zoom-In.png" />
+    <Content Include="Content\ej\web\common-images\maps\Zoom-In_hover.png" />
+    <Content Include="Content\ej\web\common-images\maps\Zoom-out.png" />
+    <Content Include="Content\ej\web\common-images\maps\Zoom-out_hover.png" />
+    <Content Include="Content\ej\web\common-images\materialtheme\colorpicker_light_material.png" />
+    <Content Include="Content\ej\web\common-images\mediaplayer\basic_view_toolbar_bg.png" />
+    <Content Include="Content\ej\web\common-images\mediaplayer\header_bg.png" />
+    <Content Include="Content\ej\web\common-images\mediaplayer\thumbnail.png" />
+    <Content Include="Content\ej\web\common-images\mediaplayer\waiting_popup.gif" />
+    <Content Include="Content\ej\web\common-images\navigationdrawer\icons.svg" />
+    <Content Include="Content\ej\web\common-images\pdfviewer\preloader-pdfviewer.gif" />
+    <Content Include="Content\ej\web\common-images\pivotgrid\circle.png" />
+    <Content Include="Content\ej\web\common-images\pivotgrid\diamond.png" />
+    <Content Include="Content\ej\web\common-images\pivotgrid\down-arrow.png" />
+    <Content Include="Content\ej\web\common-images\pivotgrid\green.png" />
+    <Content Include="Content\ej\web\common-images\pivotgrid\red.png" />
+    <Content Include="Content\ej\web\common-images\pivotgrid\right-arrow.png" />
+    <Content Include="Content\ej\web\common-images\pivotgrid\three-color.png" />
+    <Content Include="Content\ej\web\common-images\pivotgrid\triangle.png" />
+    <Content Include="Content\ej\web\common-images\pivotgrid\up-arrow.png" />
+    <Content Include="Content\ej\web\common-images\radialmenu\back.png" />
+    <Content Include="Content\ej\web\common-images\radialmenu\radial.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Blank.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Browser.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Check.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Diet.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\ejrbnicons.svg" />
+    <Content Include="Content\ej\web\common-images\ribbon\gallery.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Gantt.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\homegallery.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\paste.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Project.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Protect.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\Sales.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\style.gallery.png" />
+    <Content Include="Content\ej\web\common-images\ribbon\User.jpg" />
+    <Content Include="Content\ej\web\common-images\ribbon\Version.png" />
+    <Content Include="Content\ej\web\common-images\schedule\schedule_priority.png" />
+    <Content Include="Content\ej\web\common-images\spellcheck\highlight.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\blank.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\bluedatabar.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\bwrcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\chart-sprites.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\charttab-sprites.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\charttype-sprites.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\cross.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\downarrow.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\downtriangle.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\down_arrow_dark.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\down_arrow_light.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\draw_border_dark.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\draw_border_grid_dark.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\draw_border_grid_light.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\draw_border_light.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\drystar.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\ejxlicons.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\exclam.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\format_painter_dark.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\format_painter_light.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\fullstar.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\greenarrow.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\greencircle.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\greencircleindi.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\greendatabar.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\greenflag.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\gwcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\gwrcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\gycolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\gyrcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\halfstar.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\lightbluedatabar.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\midarrow.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\midtriangle.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\orangedatabar.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\purpledatabar.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\redarrow.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\redcircle.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\redcircleindi.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\reddatabar.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\redflag.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\redsquare.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\right_arrow_dark.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\right_arrow_light.cur" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\rimgreencircle.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\rimredcircle.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\rimyellowcircle.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\rwbcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\rwcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\rwgcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\rygcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\sprites.png" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\tick.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\uparrow.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\uptriangle.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\wgcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\wrcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\yellowarrow.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\yellowcircle.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\yellowcircleindi.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\yellowflag.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\yellowtri.svg" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\ygcolorscale.svg" />
+    <Content Include="Content\ej\web\common-images\treeview\drop-sibling-rtl.png" />
+    <Content Include="Content\ej\web\default-theme\ej.theme.css" />
+    <Content Include="Content\ej\web\default-theme\ej.theme.min.css" />
+    <Content Include="Content\ej\web\default-theme\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\default-theme\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\default-theme\images\checkedtick.png" />
+    <Content Include="Content\ej\web\default-theme\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\default-theme\images\rating-star.png" />
+    <Content Include="Content\ej\web\default-theme\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\default-theme\images\slider-tick.png" />
+    <Content Include="Content\ej\web\default-theme\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\ej.widgets.core.bootstrap.min.css" />
+    <Content Include="Content\ej\web\ej.widgets.core.material.min.css" />
+    <Content Include="Content\ej\web\ej.widgets.core.min.css" />
+    <Content Include="Content\ej\web\ej.widgets.core.office-365.min.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\slider-tick.png" />
+    <Content Include="Content\ej\web\flat-azure-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\slider-tick.png" />
+    <Content Include="Content\ej\web\flat-lime-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\flat-lime\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-lime\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-lime\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-lime\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-lime\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-lime\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-lime\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-lime\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-lime\images\slider-tick.png" />
+    <Content Include="Content\ej\web\flat-lime\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\slider-tick.png" />
+    <Content Include="Content\ej\web\flat-saffron-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\flat-saffron\ej.theme.css" />
+    <Content Include="Content\ej\web\flat-saffron\ej.theme.min.css" />
+    <Content Include="Content\ej\web\flat-saffron\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\flat-saffron\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\flat-saffron\images\checkedtick.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\rating-star.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\slider-tick.png" />
+    <Content Include="Content\ej\web\flat-saffron\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\slider-tick.png" />
+    <Content Include="Content\ej\web\gradient-azure-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-azure\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-azure\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-azure\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-azure\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-azure\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\slider-tick.png" />
+    <Content Include="Content\ej\web\gradient-azure\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\slider-tick.png" />
+    <Content Include="Content\ej\web\gradient-lime-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-lime\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-lime\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-lime\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-lime\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-lime\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\slider-tick.png" />
+    <Content Include="Content\ej\web\gradient-lime\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\slider-tick.png" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.theme.css" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.theme.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\gradient-saffron\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\gradient-saffron\images\checkedtick.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\rating-star.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\slider-tick.png" />
+    <Content Include="Content\ej\web\gradient-saffron\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\high-contrast-01\ej.theme.css" />
+    <Content Include="Content\ej\web\high-contrast-01\ej.theme.min.css" />
+    <Content Include="Content\ej\web\high-contrast-01\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\high-contrast-01\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\high-contrast-01\images\checkedtick.png" />
+    <Content Include="Content\ej\web\high-contrast-01\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\high-contrast-01\images\rating-star.png" />
+    <Content Include="Content\ej\web\high-contrast-01\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\high-contrast-01\images\slider-tick.png" />
+    <Content Include="Content\ej\web\high-contrast-01\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\high-contrast-02\ej.theme.css" />
+    <Content Include="Content\ej\web\high-contrast-02\ej.theme.min.css" />
+    <Content Include="Content\ej\web\high-contrast-02\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\high-contrast-02\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\high-contrast-02\images\checkedtick.png" />
+    <Content Include="Content\ej\web\high-contrast-02\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\high-contrast-02\images\rating-star.png" />
+    <Content Include="Content\ej\web\high-contrast-02\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\high-contrast-02\images\slider-tick.png" />
+    <Content Include="Content\ej\web\high-contrast-02\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\material\ej.theme.css" />
+    <Content Include="Content\ej\web\material\ej.theme.min.css" />
+    <Content Include="Content\ej\web\material\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\material\icons\ejicons.svg" />
+    <Content Include="Content\ej\web\material\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\material\images\checkedtick.png" />
+    <Content Include="Content\ej\web\material\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\material\images\rating-star.png" />
+    <Content Include="Content\ej\web\material\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\material\images\slider-tick.png" />
+    <Content Include="Content\ej\web\material\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\office-365\ej.theme.css" />
+    <Content Include="Content\ej\web\office-365\ej.theme.min.css" />
+    <Content Include="Content\ej\web\office-365\ej.web.all.min.css" />
+    <Content Include="Content\ej\web\office-365\icons\ejicons.svg" />
+    <Content Include="Content\ej\web\office-365\images\ajax-loader.gif" />
+    <Content Include="Content\ej\web\office-365\images\checkedtick.png" />
+    <Content Include="Content\ej\web\office-365\images\drop-sibling.png" />
+    <Content Include="Content\ej\web\office-365\images\Rating_Active.png" />
+    <Content Include="Content\ej\web\office-365\images\Rating_Clear.png" />
+    <Content Include="Content\ej\web\office-365\images\Rating_Default.png" />
+    <Content Include="Content\ej\web\office-365\images\rotator-icon.png" />
+    <Content Include="Content\ej\web\office-365\images\slider-tick.png" />
+    <Content Include="Content\ej\web\office-365\images\waitingpopup.gif" />
+    <Content Include="Content\ej\web\responsive-css\ej.responsive.css" />
+    <Content Include="Content\ej\web\responsive-css\ejgrid.responsive.css" />
+    <Content Include="Content\ej\web\ribbon-css\ej.icons.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="English\.gitignore" />
+    <Content Include="English\CSS\all-rtl.min.css" />
+    <Content Include="English\CSS\all.min.css" />
+    <Content Include="English\CSS\bootstrap-rtl.min.css" />
+    <Content Include="English\CSS\bootstrap.min.css" />
+    <Content Include="English\CSS\DataTableCss.css" />
+    <Content Include="English\CSS\DDL.css" />
+    <Content Include="English\CSS\Onership_Details.css" />
+    <Content Include="English\CSS\ruang-admin-rtl.min.css" />
+    <Content Include="English\CSS\ruang-admin.min.css" />
+    <Content Include="English\JS\chart-area-demo.js" />
+    <Content Include="English\JS\DataTableScript.js" />
+    <Content Include="English\JS\Dropdown.js" />
+    <Content Include="English\JS\jquery.vide.js" />
+    <Content Include="English\JS\JSY.js" />
+    <Content Include="English\JS\JSY2.js" />
+    <Content Include="English\JS\JSY3.js" />
+    <Content Include="English\JS\JSY4.js" />
+    <Content Include="English\JS\JSY5.js" />
+    <Content Include="English\JS\New_Attachment_Section.js" />
+    <Content Include="English\Main_Application\.gitignore" />
+    <Content Include="English\Main_Application\Accordin_Add_Ownership.aspx" />
+    <Content Include="English\Main_Application\Add-Contract.aspx" />
+    <Content Include="English\Main_Application\Add_Asset.aspx" />
+    <Content Include="English\Main_Application\Add_Building.aspx" />
+    <Content Include="English\Main_Application\Add_complaint_report_request.aspx" />
+    <Content Include="English\Main_Application\Add_Contract.aspx" />
+    <Content Include="English\Main_Application\Add_OwnerShip.aspx" />
+    <Content Include="English\Main_Application\Add_Task.aspx" />
+    <Content Include="English\Main_Application\Add_Tenant.aspx" />
+    <Content Include="English\Main_Application\Add_Unit.aspx" />
+    <Content Include="English\Main_Application\All_Income.aspx" />
+    <Content Include="English\Main_Application\Amlak_Dashboard.aspx" />
+    <Content Include="English\Main_Application\Ashraf.aspx" />
+    <Content Include="English\Main_Application\Asset_Details_Tabel.aspx" />
+    <Content Include="English\Main_Application\Asset_List.aspx" />
+    <Content Include="English\Main_Application\Building_Contract_Details.aspx" />
+    <Content Include="English\Main_Application\Building_Datials.aspx" />
+    <Content Include="English\Main_Application\Building_Dtl.aspx" />
+    <Content Include="English\Main_Application\Building_List.aspx" />
+    <Content Include="English\Main_Application\Cash_Icome.aspx" />
+    <Content Include="English\Main_Application\Collect_Multi_Cash.aspx" />
+    <Content Include="English\Main_Application\Collect_Multi_Cheuqe.aspx" />
+    <Content Include="English\Main_Application\Collect_Multi_Transformation.aspx" />
+    <Content Include="English\Main_Application\Collect_Singl_Cash.aspx" />
+    <Content Include="English\Main_Application\Collect_Singl_Cheuqe.aspx" />
+    <Content Include="English\Main_Application\Collect_Singl_Transformation.aspx" />
+    <Content Include="English\Main_Application\complaint_report_request_Details.aspx" />
+    <Content Include="English\Main_Application\complaint_report_request_List.aspx" />
+    <Content Include="English\Main_Application\Contact_With_Tenant.aspx" />
+    <Content Include="English\Main_Application\Contract_Arcive.aspx" />
+    <Content Include="English\Main_Application\Contract_Details.aspx" />
+    <Content Include="English\Main_Application\Contract_List.aspx" />
+    <Content Include="English\Main_Application\DashBoard.aspx" />
+    <Content Include="English\Main_Application\Detais_All_Ownership.aspx" />
+    <Content Include="English\Main_Application\Edit_Asset.aspx" />
+    <Content Include="English\Main_Application\Edit_Building.aspx" />
+    <Content Include="English\Main_Application\Edit_Building_Contract.aspx" />
+    <Content Include="English\Main_Application\Edit_Building_In_Ownership_Detais.aspx" />
+    <Content Include="English\Main_Application\Edit_complaint_report_request.aspx" />
+    <Content Include="English\Main_Application\Edit_Contract.aspx" />
+    <Content Include="English\Main_Application\Edit_Ownership.aspx" />
+    <Content Include="English\Main_Application\Edit_Task.aspx" />
+    <Content Include="English\Main_Application\Edit_Tenant.aspx" />
+    <Content Include="English\Main_Application\Edit_Unit_In_Building_Details.aspx" />
+    <Content Include="English\Main_Application\Employee_Task_Management.aspx" />
+    <Content Include="English\Main_Application\Excel_Report.aspx" />
+    <Content Include="English\Main_Application\Excel_report_New.aspx" />
+    <Content Include="English\Main_Application\Expaired_Contract.aspx" />
+    <Content Include="English\Main_Application\Expenses.aspx" />
+    <Content Include="English\Main_Application\E_Task_List.aspx" />
+    <Content Include="English\Main_Application\Incomes.aspx" />
+    <Content Include="English\Main_Application\Income_New.aspx" />
+    <Content Include="English\Main_Application\lists.aspx" />
+    <Content Include="English\Main_Application\Log_In.aspx" />
+    <Content Include="English\Main_Application\Maintenance_Templete_PDF.aspx" />
+    <Content Include="English\Main_Application\Maintenence_Templet.aspx" />
+    <Content Include="English\Main_Application\Main_Image\bin.png" />
+    <Content Include="English\Main_Application\Main_Image\blueprint.png" />
+    <Content Include="English\Main_Application\Main_Image\Btn_ALL_Contract.png" />
+    <Content Include="English\Main_Application\Main_Image\building.png" />
+    <Content Include="English\Main_Application\Main_Image\Calander_Close.png" />
+    <Content Include="English\Main_Application\Main_Image\check-list.png" />
+    <Content Include="English\Main_Application\Main_Image\Delete.png" />
+    <Content Include="English\Main_Application\Main_Image\down_arrow.png" />
+    <Content Include="English\Main_Application\Main_Image\Edit.png" />
+    <Content Include="English\Main_Application\Main_Image\empty_Image.jpg" />
+    <Content Include="English\Main_Application\Main_Image\Empty_pdf.png" />
+    <Content Include="English\Main_Application\Main_Image\EX_ICON.jpg" />
+    <Content Include="English\Main_Application\Main_Image\home.png" />
+    <Content Include="English\Main_Application\Main_Image\Lamp.png" />
+    <Content Include="English\Main_Application\Main_Image\land.png" />
+    <Content Include="English\Main_Application\Main_Image\Logo.jpg" />
+    <Content Include="English\Main_Application\Main_Image\maintenance.png" />
+    <Content Include="English\Main_Application\Main_Image\Maintenance_logo.png" />
+    <Content Include="English\Main_Application\Main_Image\Manara_Header.png" />
+    <Content Include="English\Main_Application\Main_Image\money-bag.png" />
+    <Content Include="English\Main_Application\Main_Image\motorway.png" />
+    <Content Include="English\Main_Application\Main_Image\Notification.png" />
+    <Content Include="English\Main_Application\Main_Image\No_File.jpeg" />
+    <Content Include="English\Main_Application\Main_Image\number-blocks.png" />
+    <Content Include="English\Main_Application\Main_Image\official-documents.png" />
+    <Content Include="English\Main_Application\Main_Image\placeholder.png" />
+    <Content Include="English\Main_Application\Main_Image\plus.png" />
+    <Content Include="English\Main_Application\Main_Image\P_Logo.jpg" />
+    <Content Include="English\Main_Application\Main_Image\saad.jpeg" />
+    <Content Include="English\Main_Application\Main_Image\Saeb.jpeg" />
+    <Content Include="English\Main_Application\Main_Image\statement.png" />
+    <Content Include="English\Main_Application\Main_Image\type.png" />
+    <Content Include="English\Main_Application\Main_Image\Update.png" />
+    <Content Include="English\Main_Application\Main_Image\up_arrow.png" />
+    <Content Include="English\Main_Application\Main_Image\up_down.png" />
+    <Content Include="English\Main_Application\Main_Image\user.jpg" />
+    <Content Include="English\Main_Application\Main_Image\User.png" />
+    <Content Include="English\Main_Application\Main_Image\verification.png" />
+    <Content Include="English\Main_Application\Missing_Fields.aspx" />
+    <Content Include="English\Main_Application\M_Ownership_List.aspx" />
+    <Content Include="English\Main_Application\New_Rental_Disclosure.aspx" />
+    <Content Include="English\Main_Application\OS_B_U_Arcive.aspx" />
+    <Content Include="English\Main_Application\Ownership_Details_Tabel.aspx" />
+    <Content Include="English\Main_Application\OwnerShip_DTL.aspx" />
+    <Content Include="English\Main_Application\Ownership_List.aspx" />
+    <Content Include="English\Main_Application\Edit_Units.aspx" />
+    <Content Include="English\Main_Application\Periodec_Maintenance.aspx" />
+    <Content Include="English\Main_Application\Periodec_Maintenance_New.aspx" />
+    <Content Include="English\Main_Application\Pickup_Delivery.aspx" />
+    <Content Include="English\Main_Application\Pickup_Delivery_PDF.aspx" />
+    <Content Include="English\Main_Application\Real_Estate_Investment.aspx" />
+    <Content Include="English\Main_Application\Renew_Building_Contract.aspx" />
+    <Content Include="English\Main_Application\Renew_Contract.aspx" />
+    <Content Include="English\Main_Application\Rental_Disclosure.aspx" />
+    <Content Include="English\Main_Application\Rental_Disclosure_test.aspx" />
+    <Content Include="English\Main_Application\Task_List.aspx" />
+    <Content Include="English\Main_Application\Task_Segmentation.aspx" />
+    <Content Include="English\Main_Application\Tenant_Datials.aspx" />
+    <Content Include="English\Main_Application\Tenant_Disclosure.aspx" />
+    <Content Include="English\Main_Application\Tenant_Disclosure_Test.aspx" />
+    <Content Include="English\Main_Application\Tenant_Evaluation.aspx" />
+    <Content Include="English\Main_Application\Tenant_List.aspx" />
+    <Content Include="English\Main_Application\Test_2.aspx" />
+    <Content Include="English\Main_Application\Test_3.aspx" />
+    <Content Include="English\Main_Application\Test_4.aspx" />
+    <Content Include="English\Main_Application\Test_Test.aspx" />
+    <Content Include="English\Main_Application\transformation_Icome.aspx" />
+    <Content Include="English\Main_Application\Units_List.aspx" />
+    <Content Include="English\Main_Application\Unit_Datials.aspx" />
+    <Content Include="English\Main_Application\Unit_DTL.aspx" />
+    <Content Include="English\Main_Application\Unit_List_Status.aspx" />
+    <Content Include="English\Main_Application\Website_Infoo.aspx" />
+    <Content Include="English\Master_Panal\.gitignore" />
+    <Content Include="English\Master_Panal\Add_Asset.aspx" />
+    <Content Include="English\Master_Panal\Add_Asset_Condition.aspx" />
+    <Content Include="English\Master_Panal\Add_Asset_Location.aspx" />
+    <Content Include="English\Master_Panal\Add_Asset_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_Bank.aspx" />
+    <Content Include="English\Master_Panal\Add_Building_Condition.aspx" />
+    <Content Include="English\Master_Panal\Add_Building_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_Cheque_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_company_rep.aspx" />
+    <Content Include="English\Master_Panal\Add_Contractor.aspx" />
+    <Content Include="English\Master_Panal\Add_Contract_Template.aspx" />
+    <Content Include="English\Master_Panal\Add_Contract_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_Department.aspx" />
+    <Content Include="English\Master_Panal\Add_Employee.aspx" />
+    <Content Include="English\Master_Panal\Add_Employee_Level.aspx" />
+    <Content Include="English\Master_Panal\Add_Inventory.aspx" />
+    <Content Include="English\Master_Panal\Add_Listing_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_Maintenance_SubType.aspx" />
+    <Content Include="English\Master_Panal\Add_Maintenance_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_Main_Type_Evaluation.aspx" />
+    <Content Include="English\Master_Panal\Add_Nationality.aspx" />
+    <Content Include="English\Master_Panal\Add_Owner.aspx" />
+    <Content Include="English\Master_Panal\Add_Ownership_status.aspx" />
+    <Content Include="English\Master_Panal\Add_Payment_Frequency.aspx" />
+    <Content Include="English\Master_Panal\Add_Payment_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_Requst_Source.aspx" />
+    <Content Include="English\Master_Panal\Add_Role.aspx" />
+    <Content Include="English\Master_Panal\Add_Transaction_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_transformation_Bank.aspx" />
+    <Content Include="English\Master_Panal\Add_under_contract_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_unit_Condition.aspx" />
+    <Content Include="English\Master_Panal\Add_Unit_Details.aspx" />
+    <Content Include="English\Master_Panal\Add_Unit_Type.aspx" />
+    <Content Include="English\Master_Panal\Add_user_Account.aspx" />
+    <Content Include="English\Master_Panal\Add_Vendor_Type.aspx" />
+    <Content Include="English\Master_Panal\Asset_Condition_List.aspx" />
+    <Content Include="English\Master_Panal\Asset_Details.aspx" />
+    <Content Include="English\Master_Panal\Asset_List.aspx" />
+    <Content Include="English\Master_Panal\Asset_Location_List.aspx" />
+    <Content Include="English\Master_Panal\Asset_Type_List.aspx" />
+    <Content Include="English\Master_Panal\Bank_List.aspx" />
+    <Content Include="English\Master_Panal\Building_Condition_List.aspx" />
+    <Content Include="English\Master_Panal\Building_Type_List.aspx" />
+    <Content Include="English\Master_Panal\Cheque_Type_List.aspx" />
+    <Content Include="English\Master_Panal\Company_rep_List.aspx" />
+    <Content Include="English\Master_Panal\Com_Rep_Details.aspx" />
+    <Content Include="English\Master_Panal\Contractor_list.aspx" />
+    <Content Include="English\Master_Panal\Contract_Template_List.aspx" />
+    <Content Include="English\Master_Panal\Contract_Type_List.aspx" />
+    <Content Include="English\Master_Panal\Department_List.aspx" />
+    <Content Include="English\Master_Panal\Edit_Asset.aspx" />
+    <Content Include="English\Master_Panal\Edit_Asset_Condition.aspx" />
+    <Content Include="English\Master_Panal\Edit_Asset_Location.aspx" />
+    <Content Include="English\Master_Panal\Edit_Asset_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Bank.aspx" />
+    <Content Include="English\Master_Panal\Edit_Building_Condition.aspx" />
+    <Content Include="English\Master_Panal\Edit_Building_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Cheque_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Company_Rep.aspx" />
+    <Content Include="English\Master_Panal\Edit_Contractor.aspx" />
+    <Content Include="English\Master_Panal\Edit_Contract_Template.aspx" />
+    <Content Include="English\Master_Panal\Edit_Contract_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Department.aspx" />
+    <Content Include="English\Master_Panal\Edit_Employee.aspx" />
+    <Content Include="English\Master_Panal\Edit_Employee_Level.aspx" />
+    <Content Include="English\Master_Panal\Edit_Inventory.aspx" />
+    <Content Include="English\Master_Panal\Edit_Listing_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Maintenance_SubType.aspx" />
+    <Content Include="English\Master_Panal\Edit_Maintenance_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Main_Type_Evaluation.aspx" />
+    <Content Include="English\Master_Panal\Edit_Owner.aspx" />
+    <Content Include="English\Master_Panal\Add_Zone.aspx" />
+    <Content Include="English\Master_Panal\Edit_Ownership_Status.aspx" />
+    <Content Include="English\Master_Panal\Edit_Payment_Frequency.aspx" />
+    <Content Include="English\Master_Panal\Edit_Payment_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Requst_Source.aspx" />
+    <Content Include="English\Master_Panal\Edit_Role.aspx" />
+    <Content Include="English\Master_Panal\Edit_Sub_Type_Evaluation.aspx" />
+    <Content Include="English\Master_Panal\Edit_Tenant_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Transaction_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_transformation_Bank.aspx" />
+    <Content Include="English\Master_Panal\Edit_Under_Contract_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Unit_Condition.aspx" />
+    <Content Include="English\Master_Panal\Edit_Unit_Detail.aspx" />
+    <Content Include="English\Master_Panal\Edit_Unit_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_user_Account.aspx" />
+    <Content Include="English\Master_Panal\Edit_Vendor_Type.aspx" />
+    <Content Include="English\Master_Panal\Edit_Zone.aspx" />
+    <Content Include="English\Master_Panal\employee_level_List.aspx" />
+    <Content Include="English\Master_Panal\Employee_List.aspx" />
+    <Content Include="English\Master_Panal\Images\down_arrow.png" />
+    <Content Include="English\Master_Panal\Images\Ownership_Arabic_Status.png" />
+    <Content Include="English\Master_Panal\Images\up_arrow.png" />
+    <Content Include="English\Master_Panal\Images\up_down.png" />
+    <Content Include="English\Master_Panal\Inventory_List.aspx" />
+    <Content Include="English\Master_Panal\Listing_Type_List.aspx" />
+    <Content Include="English\Master_Panal\Maintenance_SubType_list.aspx" />
+    <Content Include="English\Master_Panal\Maintenance_Type_list.aspx" />
+    <Content Include="English\Master_Panal\Main_Type_Evaluation_List.aspx" />
+    <Content Include="English\Master_Panal\Master_Home.aspx" />
+    <Content Include="English\Master_Panal\Master_Log_IN.aspx" />
+    <Content Include="English\Master_Panal\nationality_List.aspx" />
+    <Content Include="English\Master_Panal\Ownership_Status_List.aspx" />
+    <Content Include="English\Master_Panal\Add_Tenant_Type.aspx" />
+    <Content Include="English\Master_Panal\payment_Frequency_List.aspx" />
+    <Content Include="English\Master_Panal\payment_type_List.aspx" />
+    <Content Include="English\Master_Panal\Requst_Source_List.aspx" />
+    <Content Include="English\Master_Panal\Roles_List.aspx" />
+    <Content Include="English\Master_Panal\Sub_Main_Type_Evaluation.aspx" />
+    <Content Include="English\Master_Panal\Sub_Type_Evaluation_List.aspx" />
+    <Content Include="English\Master_Panal\Task_Type.aspx" />
+    <Content Include="English\Master_Panal\Tenant_Type_List.aspx" />
+    <Content Include="English\Master_Panal\Transaction_Type_List.aspx" />
+    <Content Include="English\Master_Panal\transformation_Bank_List.aspx" />
+    <Content Include="English\Master_Panal\Under_Contract_Type_List.aspx" />
+    <Content Include="English\Master_Panal\unit_Condition_List.aspx" />
+    <Content Include="English\Master_Panal\Owner_List.aspx" />
+    <Content Include="English\Master_Panal\Unit_Details_List.aspx" />
+    <Content Include="English\Master_Panal\Unit_Type_List.aspx" />
+    <Content Include="English\Master_Panal\User_Account_List.aspx" />
+    <Content Include="English\Master_Panal\Vendor_Type_List.aspx" />
+    <Content Include="English\Master_Panal\Website_Info.aspx" />
+    <Content Include="English\Master_Panal\Zone_List.aspx" />
+    <Content Include="English\Main_Application\nature.mp4" />
+    <Content Include="English\SMSTest.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\ej\web\office-365\icons\ejicons.woff" />
+    <Content Include="Content\ej\web\office-365\icons\ejicons.ttf" />
+    <Content Include="Content\ej\web\office-365\icons\ejicons.eot" />
+    <Content Include="Content\ej\web\office-365\ej.theme.less" />
+    <Content Include="Content\ej\web\material\icons\ejicons.woff" />
+    <Content Include="Content\ej\web\material\icons\ejicons.ttf" />
+    <Content Include="Content\ej\web\material\icons\ejicons.eot" />
+    <Content Include="Content\ej\web\material\ej.theme.less" />
+    <Content Include="Content\ej\web\high-contrast-02\ej.theme.less" />
+    <Content Include="Content\ej\web\high-contrast-01\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-saffron\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-saffron-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-lime\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-lime-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-azure\ej.theme.less" />
+    <Content Include="Content\ej\web\gradient-azure-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-saffron\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-saffron-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-lime\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-lime-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\flat-azure-dark\ej.theme.less" />
+    <Content Include="Content\ej\web\ej.widgets.core.office-365.less" />
+    <Content Include="Content\ej\web\ej.widgets.core.material.less" />
+    <Content Include="Content\ej\web\ej.widgets.core.less" />
+    <Content Include="Content\ej\web\ej.widgets.core.bootstrap.less" />
+    <Content Include="Content\ej\web\default-theme\ej.theme.less" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\ejxlicons.woff" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\ejxlicons.ttf" />
+    <Content Include="Content\ej\web\common-images\spreadsheet\ejxlicons.eot" />
+    <Content Include="Content\ej\web\common-images\ribbon\ejrbnicons.woff" />
+    <Content Include="Content\ej\web\common-images\ribbon\ejrbnicons.ttf" />
+    <Content Include="Content\ej\web\common-images\ribbon\ejrbnicons.eot" />
+    <Content Include="Content\ej\web\common-images\navigationdrawer\icons.woff" />
+    <Content Include="Content\ej\web\common-images\navigationdrawer\icons.ttf" />
+    <Content Include="Content\ej\web\common-images\navigationdrawer\icons.eot" />
+    <Content Include="Content\ej\web\common-images\ejicons.woff" />
+    <Content Include="Content\ej\web\common-images\ejicons.ttf" />
+    <Content Include="Content\ej\web\common-images\ejicons.eot" />
+    <Content Include="Content\ej\web\bootstrap-theme\ej.theme.less" />
+    <Content Include="Content\ej\mobile\images\ejmmobilefonts.woff" />
+    <Content Include="Content\ej\mobile\images\ejmmobilefonts.ttf" />
+    <Content Include="Content\ej\mobile\images\ejmmobilefonts.eot" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+    <Content Include="English\Main_Application\English.Master" />
+    <Content Include="English\Master_Panal\Admin_Panel.Master" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\ej\common\ej.core.min.js" />
+    <Content Include="Scripts\ej\common\ej.data.min.js" />
+    <Content Include="Scripts\ej\common\ej.draggable.min.js" />
+    <Content Include="Scripts\ej\common\ej.globalize.min.js" />
+    <Content Include="Scripts\ej\common\ej.scroller.min.js" />
+    <Content Include="Scripts\ej\common\ej.touch.min.js" />
+    <Content Include="Scripts\ej\common\ej.unobtrusive.min.js" />
+    <Content Include="Scripts\ej\common\ej.web.react.min.js" />
+    <Content Include="Scripts\ej\common\ej.webform.min.js" />
+    <Content Include="Scripts\ej\common\ej.widget.angular.min.js" />
+    <Content Include="Scripts\ej\common\ej.widget.ko.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.barcode.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.bulletgraph.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.chart.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.circulargauge.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.diagram.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.digitalgauge.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.gauge.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.heatmap.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.lineargauge.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.map.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.rangenavigator.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.sparkline.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.sunburstchart.min.js" />
+    <Content Include="Scripts\ej\datavisualization\ej.treemap.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.ar-AE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.de-DE.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-GB.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.en-US.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.es-ES.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.fr-FR.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.vi-VN.min.js" />
+    <Content Include="Scripts\ej\i18n\ej.culture.zh-CN.min.js" />
+    <Content Include="Scripts\ej\l10n\ej.localetexts.ar-AE.min.js" />
+    <Content Include="Scripts\ej\l10n\ej.localetexts.de-DE.min.js" />
+    <Content Include="Scripts\ej\l10n\ej.localetexts.en-GB.min.js" />
+    <Content Include="Scripts\ej\l10n\ej.localetexts.en-US.min.js" />
+    <Content Include="Scripts\ej\l10n\ej.localetexts.es-ES.min.js" />
+    <Content Include="Scripts\ej\l10n\ej.localetexts.fr-FR.min.js" />
+    <Content Include="Scripts\ej\l10n\ej.localetexts.vi-VN.min.js" />
+    <Content Include="Scripts\ej\l10n\ej.localetexts.zh-CN.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.accordion.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.all.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.application.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.autocomplete.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.button.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.core.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.datepicker.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.dialog.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.dropdownlist.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.editor.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.groupbutton.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.inputbutton.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.listview.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.menu.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.navigationbar.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.progressbar.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.radialmenu.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.radialslider.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.rating.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.rotator.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.scrollpanel.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.slider.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.splitpane.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.tab.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.tile.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.timepicker.min.js" />
+    <Content Include="Scripts\ej\mobile\ej.mobile.togglebutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.accordion.min.js" />
+    <Content Include="Scripts\ej\web\ej.autocomplete.min.js" />
+    <Content Include="Scripts\ej\web\ej.button.min.js" />
+    <Content Include="Scripts\ej\web\ej.calculate.min.js" />
+    <Content Include="Scripts\ej\web\ej.captcha.min.js" />
+    <Content Include="Scripts\ej\web\ej.checkbox.min.js" />
+    <Content Include="Scripts\ej\web\ej.colorpicker.min.js" />
+    <Content Include="Scripts\ej\web\ej.combobox.min.js" />
+    <Content Include="Scripts\ej\web\ej.datepicker.min.js" />
+    <Content Include="Scripts\ej\web\ej.daterangepicker.min.js" />
+    <Content Include="Scripts\ej\web\ej.datetimepicker.min.js" />
+    <Content Include="Scripts\ej\web\ej.dialog.min.js" />
+    <Content Include="Scripts\ej\web\ej.documenteditor.min.js" />
+    <Content Include="Scripts\ej\web\ej.dropdownlist.min.js" />
+    <Content Include="Scripts\ej\web\ej.dropdowntree.min.js" />
+    <Content Include="Scripts\ej\web\ej.editor.min.js" />
+    <Content Include="Scripts\ej\web\ej.excelfilter.min.js" />
+    <Content Include="Scripts\ej\web\ej.fileexplorer.min.js" />
+    <Content Include="Scripts\ej\web\ej.gantt.min.js" />
+    <Content Include="Scripts\ej\web\ej.grid.min.js" />
+    <Content Include="Scripts\ej\web\ej.groupbutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.kanban.min.js" />
+    <Content Include="Scripts\ej\web\ej.listbox.min.js" />
+    <Content Include="Scripts\ej\web\ej.listview.min.js" />
+    <Content Include="Scripts\ej\web\ej.maskedit.min.js" />
+    <Content Include="Scripts\ej\web\ej.mediaplayer.min.js" />
+    <Content Include="Scripts\ej\web\ej.menu.min.js" />
+    <Content Include="Scripts\ej\web\ej.navigationdrawer.min.js" />
+    <Content Include="Scripts\ej\web\ej.olap.base.min.js" />
+    <Content Include="Scripts\ej\web\ej.pager.min.js" />
+    <Content Include="Scripts\ej\web\ej.pdfviewer.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivot.common.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotanalysis.base.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotchart.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotclient.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotgauge.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotgrid.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotpager.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivotschemadesigner.min.js" />
+    <Content Include="Scripts\ej\web\ej.pivottreemap.min.js" />
+    <Content Include="Scripts\ej\web\ej.print.min.js" />
+    <Content Include="Scripts\ej\web\ej.progressbar.min.js" />
+    <Content Include="Scripts\ej\web\ej.radialmenu.min.js" />
+    <Content Include="Scripts\ej\web\ej.radialslider.min.js" />
+    <Content Include="Scripts\ej\web\ej.radiobutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.rating.min.js" />
+    <Content Include="Scripts\ej\web\ej.recurrenceeditor.min.js" />
+    <Content Include="Scripts\ej\web\ej.ribbon.min.js" />
+    <Content Include="Scripts\ej\web\ej.rotator.min.js" />
+    <Content Include="Scripts\ej\web\ej.rte.min.js" />
+    <Content Include="Scripts\ej\web\ej.schedule.min.js" />
+    <Content Include="Scripts\ej\web\ej.signature.min.js" />
+    <Content Include="Scripts\ej\web\ej.slider.min.js" />
+    <Content Include="Scripts\ej\web\ej.spellcheck.min.js" />
+    <Content Include="Scripts\ej\web\ej.splitbutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.splitter.min.js" />
+    <Content Include="Scripts\ej\web\ej.spreadsheet.min.js" />
+    <Content Include="Scripts\ej\web\ej.tab.min.js" />
+    <Content Include="Scripts\ej\web\ej.tagcloud.min.js" />
+    <Content Include="Scripts\ej\web\ej.tile.min.js" />
+    <Content Include="Scripts\ej\web\ej.timepicker.min.js" />
+    <Content Include="Scripts\ej\web\ej.togglebutton.min.js" />
+    <Content Include="Scripts\ej\web\ej.toolbar.min.js" />
+    <Content Include="Scripts\ej\web\ej.tooltip.min.js" />
+    <Content Include="Scripts\ej\web\ej.treegrid.min.js" />
+    <Content Include="Scripts\ej\web\ej.treeview.min.js" />
+    <Content Include="Scripts\ej\web\ej.uploadbox.min.js" />
+    <Content Include="Scripts\ej\web\ej.waitingpopup.min.js" />
+    <Content Include="Scripts\ej\web\ej.web.all.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsrender.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Site.Master" />
+    <Content Include="transformation_Income.aspx" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <Content Include="Site.Mobile.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="English\Main_Application\Accordin_Add_Ownership.aspx.cs">
+      <DependentUpon>Accordin_Add_Ownership.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Accordin_Add_Ownership.aspx.designer.cs">
+      <DependentUpon>Accordin_Add_Ownership.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Add-Contract.aspx.cs">
+      <DependentUpon>Add-Contract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Add-Contract.aspx.designer.cs">
+      <DependentUpon>Add-Contract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Asset.aspx.cs">
+      <DependentUpon>Add_Asset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Asset.aspx.designer.cs">
+      <DependentUpon>Add_Asset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Building.aspx.cs">
+      <DependentUpon>Add_Building.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Building.aspx.designer.cs">
+      <DependentUpon>Add_Building.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_complaint_report_request.aspx.cs">
+      <DependentUpon>Add_complaint_report_request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_complaint_report_request.aspx.designer.cs">
+      <DependentUpon>Add_complaint_report_request.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Contract.aspx.cs">
+      <DependentUpon>Add_Contract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Contract.aspx.designer.cs">
+      <DependentUpon>Add_Contract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_OwnerShip.aspx.cs">
+      <DependentUpon>Add_OwnerShip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_OwnerShip.aspx.designer.cs">
+      <DependentUpon>Add_OwnerShip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Task.aspx.cs">
+      <DependentUpon>Add_Task.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Task.aspx.designer.cs">
+      <DependentUpon>Add_Task.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Tenant.aspx.cs">
+      <DependentUpon>Add_Tenant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Tenant.aspx.designer.cs">
+      <DependentUpon>Add_Tenant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Unit.aspx.cs">
+      <DependentUpon>Add_Unit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Add_Unit.aspx.designer.cs">
+      <DependentUpon>Add_Unit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\All_Income.aspx.cs">
+      <DependentUpon>All_Income.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\All_Income.aspx.designer.cs">
+      <DependentUpon>All_Income.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Amlak_Dashboard.aspx.cs">
+      <DependentUpon>Amlak_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Amlak_Dashboard.aspx.designer.cs">
+      <DependentUpon>Amlak_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Ashraf.aspx.cs">
+      <DependentUpon>Ashraf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Ashraf.aspx.designer.cs">
+      <DependentUpon>Ashraf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Asset_Details_Tabel.aspx.cs">
+      <DependentUpon>Asset_Details_Tabel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Asset_Details_Tabel.aspx.designer.cs">
+      <DependentUpon>Asset_Details_Tabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Asset_List.aspx.cs">
+      <DependentUpon>Asset_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Asset_List.aspx.designer.cs">
+      <DependentUpon>Asset_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Building_Contract_Details.aspx.cs">
+      <DependentUpon>Building_Contract_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Building_Contract_Details.aspx.designer.cs">
+      <DependentUpon>Building_Contract_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Building_Datials.aspx.cs">
+      <DependentUpon>Building_Datials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Building_Datials.aspx.designer.cs">
+      <DependentUpon>Building_Datials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Building_Dtl.aspx.cs">
+      <DependentUpon>Building_Dtl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Building_Dtl.aspx.designer.cs">
+      <DependentUpon>Building_Dtl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Building_List.aspx.cs">
+      <DependentUpon>Building_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Building_List.aspx.designer.cs">
+      <DependentUpon>Building_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Cash_Icome.aspx.cs">
+      <DependentUpon>Cash_Icome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Cash_Icome.aspx.designer.cs">
+      <DependentUpon>Cash_Icome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Multi_Cash.aspx.cs">
+      <DependentUpon>Collect_Multi_Cash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Multi_Cash.aspx.designer.cs">
+      <DependentUpon>Collect_Multi_Cash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Multi_Cheuqe.aspx.cs">
+      <DependentUpon>Collect_Multi_Cheuqe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Multi_Cheuqe.aspx.designer.cs">
+      <DependentUpon>Collect_Multi_Cheuqe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Multi_Transformation.aspx.cs">
+      <DependentUpon>Collect_Multi_Transformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Multi_Transformation.aspx.designer.cs">
+      <DependentUpon>Collect_Multi_Transformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Singl_Cash.aspx.cs">
+      <DependentUpon>Collect_Singl_Cash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Singl_Cash.aspx.designer.cs">
+      <DependentUpon>Collect_Singl_Cash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Singl_Cheuqe.aspx.cs">
+      <DependentUpon>Collect_Singl_Cheuqe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Singl_Cheuqe.aspx.designer.cs">
+      <DependentUpon>Collect_Singl_Cheuqe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Singl_Transformation.aspx.cs">
+      <DependentUpon>Collect_Singl_Transformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Collect_Singl_Transformation.aspx.designer.cs">
+      <DependentUpon>Collect_Singl_Transformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\ColumnChartData.cs" />
+    <Compile Include="English\Main_Application\complaint_report_request_Details.aspx.cs">
+      <DependentUpon>complaint_report_request_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\complaint_report_request_Details.aspx.designer.cs">
+      <DependentUpon>complaint_report_request_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\complaint_report_request_List.aspx.cs">
+      <DependentUpon>complaint_report_request_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\complaint_report_request_List.aspx.designer.cs">
+      <DependentUpon>complaint_report_request_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Contact_With_Tenant.aspx.cs">
+      <DependentUpon>Contact_With_Tenant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Contact_With_Tenant.aspx.designer.cs">
+      <DependentUpon>Contact_With_Tenant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Contract_Arcive.aspx.cs">
+      <DependentUpon>Contract_Arcive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Contract_Arcive.aspx.designer.cs">
+      <DependentUpon>Contract_Arcive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Contract_Details.aspx.cs">
+      <DependentUpon>Contract_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Contract_Details.aspx.designer.cs">
+      <DependentUpon>Contract_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Contract_List.aspx.cs">
+      <DependentUpon>Contract_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Contract_List.aspx.designer.cs">
+      <DependentUpon>Contract_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\DashBoard.aspx.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\DashBoard.aspx.designer.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Detais_All_Ownership.aspx.cs">
+      <DependentUpon>Detais_All_Ownership.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Detais_All_Ownership.aspx.designer.cs">
+      <DependentUpon>Detais_All_Ownership.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Asset.aspx.cs">
+      <DependentUpon>Edit_Asset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Asset.aspx.designer.cs">
+      <DependentUpon>Edit_Asset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Building.aspx.cs">
+      <DependentUpon>Edit_Building.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Building.aspx.designer.cs">
+      <DependentUpon>Edit_Building.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Building_Contract.aspx.cs">
+      <DependentUpon>Edit_Building_Contract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Building_Contract.aspx.designer.cs">
+      <DependentUpon>Edit_Building_Contract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Building_In_Ownership_Detais.aspx.cs">
+      <DependentUpon>Edit_Building_In_Ownership_Detais.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Building_In_Ownership_Detais.aspx.designer.cs">
+      <DependentUpon>Edit_Building_In_Ownership_Detais.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_complaint_report_request.aspx.cs">
+      <DependentUpon>Edit_complaint_report_request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_complaint_report_request.aspx.designer.cs">
+      <DependentUpon>Edit_complaint_report_request.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Contract.aspx.cs">
+      <DependentUpon>Edit_Contract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Contract.aspx.designer.cs">
+      <DependentUpon>Edit_Contract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Ownership.aspx.cs">
+      <DependentUpon>Edit_Ownership.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Ownership.aspx.designer.cs">
+      <DependentUpon>Edit_Ownership.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Task.aspx.cs">
+      <DependentUpon>Edit_Task.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Task.aspx.designer.cs">
+      <DependentUpon>Edit_Task.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Tenant.aspx.cs">
+      <DependentUpon>Edit_Tenant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Tenant.aspx.designer.cs">
+      <DependentUpon>Edit_Tenant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Unit_In_Building_Details.aspx.cs">
+      <DependentUpon>Edit_Unit_In_Building_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Unit_In_Building_Details.aspx.designer.cs">
+      <DependentUpon>Edit_Unit_In_Building_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Employee_Task_Management.aspx.cs">
+      <DependentUpon>Employee_Task_Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Employee_Task_Management.aspx.designer.cs">
+      <DependentUpon>Employee_Task_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\English.Master.cs">
+      <DependentUpon>English.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\English.Master.designer.cs">
+      <DependentUpon>English.Master</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Excel_Report.aspx.cs">
+      <DependentUpon>Excel_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Excel_Report.aspx.designer.cs">
+      <DependentUpon>Excel_Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Excel_report_New.aspx.cs">
+      <DependentUpon>Excel_report_New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Excel_report_New.aspx.designer.cs">
+      <DependentUpon>Excel_report_New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Expaired_Contract.aspx.cs">
+      <DependentUpon>Expaired_Contract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Expaired_Contract.aspx.designer.cs">
+      <DependentUpon>Expaired_Contract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Expenses.aspx.cs">
+      <DependentUpon>Expenses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Expenses.aspx.designer.cs">
+      <DependentUpon>Expenses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\E_Task_List.aspx.cs">
+      <DependentUpon>E_Task_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\E_Task_List.aspx.designer.cs">
+      <DependentUpon>E_Task_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Incomes.aspx.cs">
+      <DependentUpon>Incomes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Incomes.aspx.designer.cs">
+      <DependentUpon>Incomes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Income_New.aspx.cs">
+      <DependentUpon>Income_New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Income_New.aspx.designer.cs">
+      <DependentUpon>Income_New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\LineChartData.cs" />
+    <Compile Include="English\Main_Application\lists.aspx.cs">
+      <DependentUpon>lists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\lists.aspx.designer.cs">
+      <DependentUpon>lists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Log_In.aspx.cs">
+      <DependentUpon>Log_In.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Log_In.aspx.designer.cs">
+      <DependentUpon>Log_In.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Maintenance_Templete_PDF.aspx.cs">
+      <DependentUpon>Maintenance_Templete_PDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Maintenance_Templete_PDF.aspx.designer.cs">
+      <DependentUpon>Maintenance_Templete_PDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Maintenence_Templet.aspx.cs">
+      <DependentUpon>Maintenence_Templet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Maintenence_Templet.aspx.designer.cs">
+      <DependentUpon>Maintenence_Templet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Missing_Fields.aspx.cs">
+      <DependentUpon>Missing_Fields.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Missing_Fields.aspx.designer.cs">
+      <DependentUpon>Missing_Fields.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\M_Ownership_List.aspx.cs">
+      <DependentUpon>M_Ownership_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\M_Ownership_List.aspx.designer.cs">
+      <DependentUpon>M_Ownership_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\New_Rental_Disclosure.aspx.cs">
+      <DependentUpon>New_Rental_Disclosure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\New_Rental_Disclosure.aspx.designer.cs">
+      <DependentUpon>New_Rental_Disclosure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\OS_B_U_Arcive.aspx.cs">
+      <DependentUpon>OS_B_U_Arcive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\OS_B_U_Arcive.aspx.designer.cs">
+      <DependentUpon>OS_B_U_Arcive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Ownership_Details_Tabel.aspx.cs">
+      <DependentUpon>Ownership_Details_Tabel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Ownership_Details_Tabel.aspx.designer.cs">
+      <DependentUpon>Ownership_Details_Tabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\OwnerShip_DTL.aspx.cs">
+      <DependentUpon>OwnerShip_DTL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\OwnerShip_DTL.aspx.designer.cs">
+      <DependentUpon>OwnerShip_DTL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Ownership_List.aspx.cs">
+      <DependentUpon>Ownership_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Ownership_List.aspx.designer.cs">
+      <DependentUpon>Ownership_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Units.aspx.cs">
+      <DependentUpon>Edit_Units.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Edit_Units.aspx.designer.cs">
+      <DependentUpon>Edit_Units.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Periodec_Maintenance.aspx.cs">
+      <DependentUpon>Periodec_Maintenance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Periodec_Maintenance.aspx.designer.cs">
+      <DependentUpon>Periodec_Maintenance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Periodec_Maintenance_New.aspx.cs">
+      <DependentUpon>Periodec_Maintenance_New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Periodec_Maintenance_New.aspx.designer.cs">
+      <DependentUpon>Periodec_Maintenance_New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Pickup_Delivery.aspx.cs">
+      <DependentUpon>Pickup_Delivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Pickup_Delivery.aspx.designer.cs">
+      <DependentUpon>Pickup_Delivery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Pickup_Delivery_PDF.aspx.cs">
+      <DependentUpon>Pickup_Delivery_PDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Pickup_Delivery_PDF.aspx.designer.cs">
+      <DependentUpon>Pickup_Delivery_PDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Real_Estate_Investment.aspx.cs">
+      <DependentUpon>Real_Estate_Investment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Real_Estate_Investment.aspx.designer.cs">
+      <DependentUpon>Real_Estate_Investment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Renew_Building_Contract.aspx.cs">
+      <DependentUpon>Renew_Building_Contract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Renew_Building_Contract.aspx.designer.cs">
+      <DependentUpon>Renew_Building_Contract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Renew_Contract.aspx.cs">
+      <DependentUpon>Renew_Contract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Renew_Contract.aspx.designer.cs">
+      <DependentUpon>Renew_Contract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Rental_Disclosure.aspx.cs">
+      <DependentUpon>Rental_Disclosure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Rental_Disclosure.aspx.designer.cs">
+      <DependentUpon>Rental_Disclosure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Rental_Disclosure_test.aspx.cs">
+      <DependentUpon>Rental_Disclosure_test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Rental_Disclosure_test.aspx.designer.cs">
+      <DependentUpon>Rental_Disclosure_test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\R_E_S_LINE_CHART.cs" />
+    <Compile Include="English\Main_Application\R_E_V_LINE_CHART.cs" />
+    <Compile Include="English\Main_Application\Task_List.aspx.cs">
+      <DependentUpon>Task_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Task_List.aspx.designer.cs">
+      <DependentUpon>Task_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Task_Segmentation.aspx.cs">
+      <DependentUpon>Task_Segmentation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Task_Segmentation.aspx.designer.cs">
+      <DependentUpon>Task_Segmentation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_Datials.aspx.cs">
+      <DependentUpon>Tenant_Datials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_Datials.aspx.designer.cs">
+      <DependentUpon>Tenant_Datials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_Disclosure.aspx.cs">
+      <DependentUpon>Tenant_Disclosure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_Disclosure.aspx.designer.cs">
+      <DependentUpon>Tenant_Disclosure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_Disclosure_Test.aspx.cs">
+      <DependentUpon>Tenant_Disclosure_Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_Disclosure_Test.aspx.designer.cs">
+      <DependentUpon>Tenant_Disclosure_Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_Evaluation.aspx.cs">
+      <DependentUpon>Tenant_Evaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_Evaluation.aspx.designer.cs">
+      <DependentUpon>Tenant_Evaluation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_List.aspx.cs">
+      <DependentUpon>Tenant_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Tenant_List.aspx.designer.cs">
+      <DependentUpon>Tenant_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Test_2.aspx.cs">
+      <DependentUpon>Test_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Test_2.aspx.designer.cs">
+      <DependentUpon>Test_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Test_3.aspx.cs">
+      <DependentUpon>Test_3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Test_3.aspx.designer.cs">
+      <DependentUpon>Test_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Test_4.aspx.cs">
+      <DependentUpon>Test_4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Test_4.aspx.designer.cs">
+      <DependentUpon>Test_4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Test_Test.aspx.cs">
+      <DependentUpon>Test_Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Test_Test.aspx.designer.cs">
+      <DependentUpon>Test_Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\transformation_Icome.aspx.cs">
+      <DependentUpon>transformation_Icome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\transformation_Icome.aspx.designer.cs">
+      <DependentUpon>transformation_Icome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Units_List.aspx.cs">
+      <DependentUpon>Units_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Units_List.aspx.designer.cs">
+      <DependentUpon>Units_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Unit_Datials.aspx.cs">
+      <DependentUpon>Unit_Datials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Unit_Datials.aspx.designer.cs">
+      <DependentUpon>Unit_Datials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Unit_DTL.aspx.cs">
+      <DependentUpon>Unit_DTL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Unit_DTL.aspx.designer.cs">
+      <DependentUpon>Unit_DTL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Unit_List_Status.aspx.cs">
+      <DependentUpon>Unit_List_Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Unit_List_Status.aspx.designer.cs">
+      <DependentUpon>Unit_List_Status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Main_Application\Website_Infoo.aspx.cs">
+      <DependentUpon>Website_Infoo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Main_Application\Website_Infoo.aspx.designer.cs">
+      <DependentUpon>Website_Infoo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Asset.aspx.cs">
+      <DependentUpon>Add_Asset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Asset.aspx.designer.cs">
+      <DependentUpon>Add_Asset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Asset_Condition.aspx.cs">
+      <DependentUpon>Add_Asset_Condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Asset_Condition.aspx.designer.cs">
+      <DependentUpon>Add_Asset_Condition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Asset_Location.aspx.cs">
+      <DependentUpon>Add_Asset_Location.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Asset_Location.aspx.designer.cs">
+      <DependentUpon>Add_Asset_Location.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Asset_Type.aspx.cs">
+      <DependentUpon>Add_Asset_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Asset_Type.aspx.designer.cs">
+      <DependentUpon>Add_Asset_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Bank.aspx.cs">
+      <DependentUpon>Add_Bank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Bank.aspx.designer.cs">
+      <DependentUpon>Add_Bank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Building_Condition.aspx.cs">
+      <DependentUpon>Add_Building_Condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Building_Condition.aspx.designer.cs">
+      <DependentUpon>Add_Building_Condition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Building_Type.aspx.cs">
+      <DependentUpon>Add_Building_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Building_Type.aspx.designer.cs">
+      <DependentUpon>Add_Building_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Cheque_Type.aspx.cs">
+      <DependentUpon>Add_Cheque_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Cheque_Type.aspx.designer.cs">
+      <DependentUpon>Add_Cheque_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_company_rep.aspx.cs">
+      <DependentUpon>Add_company_rep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_company_rep.aspx.designer.cs">
+      <DependentUpon>Add_company_rep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Contractor.aspx.cs">
+      <DependentUpon>Add_Contractor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Contractor.aspx.designer.cs">
+      <DependentUpon>Add_Contractor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Contract_Template.aspx.cs">
+      <DependentUpon>Add_Contract_Template.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Contract_Template.aspx.designer.cs">
+      <DependentUpon>Add_Contract_Template.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Contract_Type.aspx.cs">
+      <DependentUpon>Add_Contract_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Contract_Type.aspx.designer.cs">
+      <DependentUpon>Add_Contract_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Department.aspx.cs">
+      <DependentUpon>Add_Department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Department.aspx.designer.cs">
+      <DependentUpon>Add_Department.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Employee.aspx.cs">
+      <DependentUpon>Add_Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Employee.aspx.designer.cs">
+      <DependentUpon>Add_Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Employee_Level.aspx.cs">
+      <DependentUpon>Add_Employee_Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Employee_Level.aspx.designer.cs">
+      <DependentUpon>Add_Employee_Level.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Inventory.aspx.cs">
+      <DependentUpon>Add_Inventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Inventory.aspx.designer.cs">
+      <DependentUpon>Add_Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Listing_Type.aspx.cs">
+      <DependentUpon>Add_Listing_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Listing_Type.aspx.designer.cs">
+      <DependentUpon>Add_Listing_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Maintenance_SubType.aspx.cs">
+      <DependentUpon>Add_Maintenance_SubType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Maintenance_SubType.aspx.designer.cs">
+      <DependentUpon>Add_Maintenance_SubType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Maintenance_Type.aspx.cs">
+      <DependentUpon>Add_Maintenance_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Maintenance_Type.aspx.designer.cs">
+      <DependentUpon>Add_Maintenance_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Main_Type_Evaluation.aspx.cs">
+      <DependentUpon>Add_Main_Type_Evaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Main_Type_Evaluation.aspx.designer.cs">
+      <DependentUpon>Add_Main_Type_Evaluation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Nationality.aspx.cs">
+      <DependentUpon>Add_Nationality.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Nationality.aspx.designer.cs">
+      <DependentUpon>Add_Nationality.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Owner.aspx.cs">
+      <DependentUpon>Add_Owner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Owner.aspx.designer.cs">
+      <DependentUpon>Add_Owner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Ownership_status.aspx.cs">
+      <DependentUpon>Add_Ownership_status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Ownership_status.aspx.designer.cs">
+      <DependentUpon>Add_Ownership_status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Payment_Frequency.aspx.cs">
+      <DependentUpon>Add_Payment_Frequency.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Payment_Frequency.aspx.designer.cs">
+      <DependentUpon>Add_Payment_Frequency.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Payment_Type.aspx.cs">
+      <DependentUpon>Add_Payment_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Payment_Type.aspx.designer.cs">
+      <DependentUpon>Add_Payment_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Requst_Source.aspx.cs">
+      <DependentUpon>Add_Requst_Source.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Requst_Source.aspx.designer.cs">
+      <DependentUpon>Add_Requst_Source.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Role.aspx.cs">
+      <DependentUpon>Add_Role.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Role.aspx.designer.cs">
+      <DependentUpon>Add_Role.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Transaction_Type.aspx.cs">
+      <DependentUpon>Add_Transaction_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Transaction_Type.aspx.designer.cs">
+      <DependentUpon>Add_Transaction_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_transformation_Bank.aspx.cs">
+      <DependentUpon>Add_transformation_Bank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_transformation_Bank.aspx.designer.cs">
+      <DependentUpon>Add_transformation_Bank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_under_contract_Type.aspx.cs">
+      <DependentUpon>Add_under_contract_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_under_contract_Type.aspx.designer.cs">
+      <DependentUpon>Add_under_contract_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_unit_Condition.aspx.cs">
+      <DependentUpon>Add_unit_Condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_unit_Condition.aspx.designer.cs">
+      <DependentUpon>Add_unit_Condition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Unit_Details.aspx.cs">
+      <DependentUpon>Add_Unit_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Unit_Details.aspx.designer.cs">
+      <DependentUpon>Add_Unit_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Unit_Type.aspx.cs">
+      <DependentUpon>Add_Unit_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Unit_Type.aspx.designer.cs">
+      <DependentUpon>Add_Unit_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_user_Account.aspx.cs">
+      <DependentUpon>Add_user_Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_user_Account.aspx.designer.cs">
+      <DependentUpon>Add_user_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Vendor_Type.aspx.cs">
+      <DependentUpon>Add_Vendor_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Vendor_Type.aspx.designer.cs">
+      <DependentUpon>Add_Vendor_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Admin_Panel.Master.cs">
+      <DependentUpon>Admin_Panel.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Admin_Panel.Master.designer.cs">
+      <DependentUpon>Admin_Panel.Master</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_Condition_List.aspx.cs">
+      <DependentUpon>Asset_Condition_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_Condition_List.aspx.designer.cs">
+      <DependentUpon>Asset_Condition_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_Details.aspx.cs">
+      <DependentUpon>Asset_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_Details.aspx.designer.cs">
+      <DependentUpon>Asset_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_List.aspx.cs">
+      <DependentUpon>Asset_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_List.aspx.designer.cs">
+      <DependentUpon>Asset_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_Location_List.aspx.cs">
+      <DependentUpon>Asset_Location_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_Location_List.aspx.designer.cs">
+      <DependentUpon>Asset_Location_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_Type_List.aspx.cs">
+      <DependentUpon>Asset_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Asset_Type_List.aspx.designer.cs">
+      <DependentUpon>Asset_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Bank_List.aspx.cs">
+      <DependentUpon>Bank_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Bank_List.aspx.designer.cs">
+      <DependentUpon>Bank_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Building_Condition_List.aspx.cs">
+      <DependentUpon>Building_Condition_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Building_Condition_List.aspx.designer.cs">
+      <DependentUpon>Building_Condition_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Building_Type_List.aspx.cs">
+      <DependentUpon>Building_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Building_Type_List.aspx.designer.cs">
+      <DependentUpon>Building_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Cheque_Type_List.aspx.cs">
+      <DependentUpon>Cheque_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Cheque_Type_List.aspx.designer.cs">
+      <DependentUpon>Cheque_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Company_rep_List.aspx.cs">
+      <DependentUpon>Company_rep_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Company_rep_List.aspx.designer.cs">
+      <DependentUpon>Company_rep_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Com_Rep_Details.aspx.cs">
+      <DependentUpon>Com_Rep_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Com_Rep_Details.aspx.designer.cs">
+      <DependentUpon>Com_Rep_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Contractor_list.aspx.cs">
+      <DependentUpon>Contractor_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Contractor_list.aspx.designer.cs">
+      <DependentUpon>Contractor_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Contract_Template_List.aspx.cs">
+      <DependentUpon>Contract_Template_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Contract_Template_List.aspx.designer.cs">
+      <DependentUpon>Contract_Template_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Contract_Type_List.aspx.cs">
+      <DependentUpon>Contract_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Contract_Type_List.aspx.designer.cs">
+      <DependentUpon>Contract_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Department_List.aspx.cs">
+      <DependentUpon>Department_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Department_List.aspx.designer.cs">
+      <DependentUpon>Department_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Asset.aspx.cs">
+      <DependentUpon>Edit_Asset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Asset.aspx.designer.cs">
+      <DependentUpon>Edit_Asset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Asset_Condition.aspx.cs">
+      <DependentUpon>Edit_Asset_Condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Asset_Condition.aspx.designer.cs">
+      <DependentUpon>Edit_Asset_Condition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Asset_Location.aspx.cs">
+      <DependentUpon>Edit_Asset_Location.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Asset_Location.aspx.designer.cs">
+      <DependentUpon>Edit_Asset_Location.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Asset_Type.aspx.cs">
+      <DependentUpon>Edit_Asset_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Asset_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Asset_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Bank.aspx.cs">
+      <DependentUpon>Edit_Bank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Bank.aspx.designer.cs">
+      <DependentUpon>Edit_Bank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Building_Condition.aspx.cs">
+      <DependentUpon>Edit_Building_Condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Building_Condition.aspx.designer.cs">
+      <DependentUpon>Edit_Building_Condition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Building_Type.aspx.cs">
+      <DependentUpon>Edit_Building_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Building_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Building_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Cheque_Type.aspx.cs">
+      <DependentUpon>Edit_Cheque_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Cheque_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Cheque_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Company_Rep.aspx.cs">
+      <DependentUpon>Edit_Company_Rep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Company_Rep.aspx.designer.cs">
+      <DependentUpon>Edit_Company_Rep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Contractor.aspx.cs">
+      <DependentUpon>Edit_Contractor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Contractor.aspx.designer.cs">
+      <DependentUpon>Edit_Contractor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Contract_Template.aspx.cs">
+      <DependentUpon>Edit_Contract_Template.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Contract_Template.aspx.designer.cs">
+      <DependentUpon>Edit_Contract_Template.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Contract_Type.aspx.cs">
+      <DependentUpon>Edit_Contract_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Contract_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Contract_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Department.aspx.cs">
+      <DependentUpon>Edit_Department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Department.aspx.designer.cs">
+      <DependentUpon>Edit_Department.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Employee.aspx.cs">
+      <DependentUpon>Edit_Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Employee.aspx.designer.cs">
+      <DependentUpon>Edit_Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Employee_Level.aspx.cs">
+      <DependentUpon>Edit_Employee_Level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Employee_Level.aspx.designer.cs">
+      <DependentUpon>Edit_Employee_Level.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Inventory.aspx.cs">
+      <DependentUpon>Edit_Inventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Inventory.aspx.designer.cs">
+      <DependentUpon>Edit_Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Listing_Type.aspx.cs">
+      <DependentUpon>Edit_Listing_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Listing_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Listing_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Maintenance_SubType.aspx.cs">
+      <DependentUpon>Edit_Maintenance_SubType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Maintenance_SubType.aspx.designer.cs">
+      <DependentUpon>Edit_Maintenance_SubType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Maintenance_Type.aspx.cs">
+      <DependentUpon>Edit_Maintenance_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Maintenance_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Maintenance_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Main_Type_Evaluation.aspx.cs">
+      <DependentUpon>Edit_Main_Type_Evaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Main_Type_Evaluation.aspx.designer.cs">
+      <DependentUpon>Edit_Main_Type_Evaluation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Owner.aspx.cs">
+      <DependentUpon>Edit_Owner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Owner.aspx.designer.cs">
+      <DependentUpon>Edit_Owner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Zone.aspx.cs">
+      <DependentUpon>Add_Zone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Zone.aspx.designer.cs">
+      <DependentUpon>Add_Zone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Ownership_Status.aspx.cs">
+      <DependentUpon>Edit_Ownership_Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Ownership_Status.aspx.designer.cs">
+      <DependentUpon>Edit_Ownership_Status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Payment_Frequency.aspx.cs">
+      <DependentUpon>Edit_Payment_Frequency.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Payment_Frequency.aspx.designer.cs">
+      <DependentUpon>Edit_Payment_Frequency.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Payment_Type.aspx.cs">
+      <DependentUpon>Edit_Payment_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Payment_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Payment_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Requst_Source.aspx.cs">
+      <DependentUpon>Edit_Requst_Source.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Requst_Source.aspx.designer.cs">
+      <DependentUpon>Edit_Requst_Source.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Role.aspx.cs">
+      <DependentUpon>Edit_Role.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Role.aspx.designer.cs">
+      <DependentUpon>Edit_Role.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Sub_Type_Evaluation.aspx.cs">
+      <DependentUpon>Edit_Sub_Type_Evaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Sub_Type_Evaluation.aspx.designer.cs">
+      <DependentUpon>Edit_Sub_Type_Evaluation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Tenant_Type.aspx.cs">
+      <DependentUpon>Edit_Tenant_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Tenant_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Tenant_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Transaction_Type.aspx.cs">
+      <DependentUpon>Edit_Transaction_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Transaction_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Transaction_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_transformation_Bank.aspx.cs">
+      <DependentUpon>Edit_transformation_Bank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_transformation_Bank.aspx.designer.cs">
+      <DependentUpon>Edit_transformation_Bank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Under_Contract_Type.aspx.cs">
+      <DependentUpon>Edit_Under_Contract_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Under_Contract_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Under_Contract_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Unit_Condition.aspx.cs">
+      <DependentUpon>Edit_Unit_Condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Unit_Condition.aspx.designer.cs">
+      <DependentUpon>Edit_Unit_Condition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Unit_Detail.aspx.cs">
+      <DependentUpon>Edit_Unit_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Unit_Detail.aspx.designer.cs">
+      <DependentUpon>Edit_Unit_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Unit_Type.aspx.cs">
+      <DependentUpon>Edit_Unit_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Unit_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Unit_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_user_Account.aspx.cs">
+      <DependentUpon>Edit_user_Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_user_Account.aspx.designer.cs">
+      <DependentUpon>Edit_user_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Vendor_Type.aspx.cs">
+      <DependentUpon>Edit_Vendor_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Vendor_Type.aspx.designer.cs">
+      <DependentUpon>Edit_Vendor_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Zone.aspx.cs">
+      <DependentUpon>Edit_Zone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Edit_Zone.aspx.designer.cs">
+      <DependentUpon>Edit_Zone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\employee_level_List.aspx.cs">
+      <DependentUpon>employee_level_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\employee_level_List.aspx.designer.cs">
+      <DependentUpon>employee_level_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Employee_List.aspx.cs">
+      <DependentUpon>Employee_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Employee_List.aspx.designer.cs">
+      <DependentUpon>Employee_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Inventory_List.aspx.cs">
+      <DependentUpon>Inventory_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Inventory_List.aspx.designer.cs">
+      <DependentUpon>Inventory_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Listing_Type_List.aspx.cs">
+      <DependentUpon>Listing_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Listing_Type_List.aspx.designer.cs">
+      <DependentUpon>Listing_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Maintenance_SubType_list.aspx.cs">
+      <DependentUpon>Maintenance_SubType_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Maintenance_SubType_list.aspx.designer.cs">
+      <DependentUpon>Maintenance_SubType_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Maintenance_Type_list.aspx.cs">
+      <DependentUpon>Maintenance_Type_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Maintenance_Type_list.aspx.designer.cs">
+      <DependentUpon>Maintenance_Type_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Main_Type_Evaluation_List.aspx.cs">
+      <DependentUpon>Main_Type_Evaluation_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Main_Type_Evaluation_List.aspx.designer.cs">
+      <DependentUpon>Main_Type_Evaluation_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Master_Home.aspx.cs">
+      <DependentUpon>Master_Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Master_Home.aspx.designer.cs">
+      <DependentUpon>Master_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Master_Log_IN.aspx.cs">
+      <DependentUpon>Master_Log_IN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Master_Log_IN.aspx.designer.cs">
+      <DependentUpon>Master_Log_IN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\nationality_List.aspx.cs">
+      <DependentUpon>nationality_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\nationality_List.aspx.designer.cs">
+      <DependentUpon>nationality_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Ownership_Status_List.aspx.cs">
+      <DependentUpon>Ownership_Status_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Ownership_Status_List.aspx.designer.cs">
+      <DependentUpon>Ownership_Status_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Tenant_Type.aspx.cs">
+      <DependentUpon>Add_Tenant_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Add_Tenant_Type.aspx.designer.cs">
+      <DependentUpon>Add_Tenant_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\payment_Frequency_List.aspx.cs">
+      <DependentUpon>payment_Frequency_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\payment_Frequency_List.aspx.designer.cs">
+      <DependentUpon>payment_Frequency_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\payment_type_List.aspx.cs">
+      <DependentUpon>payment_type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\payment_type_List.aspx.designer.cs">
+      <DependentUpon>payment_type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Requst_Source_List.aspx.cs">
+      <DependentUpon>Requst_Source_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Requst_Source_List.aspx.designer.cs">
+      <DependentUpon>Requst_Source_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Roles_List.aspx.cs">
+      <DependentUpon>Roles_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Roles_List.aspx.designer.cs">
+      <DependentUpon>Roles_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Sub_Main_Type_Evaluation.aspx.cs">
+      <DependentUpon>Sub_Main_Type_Evaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Sub_Main_Type_Evaluation.aspx.designer.cs">
+      <DependentUpon>Sub_Main_Type_Evaluation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Sub_Type_Evaluation_List.aspx.cs">
+      <DependentUpon>Sub_Type_Evaluation_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Sub_Type_Evaluation_List.aspx.designer.cs">
+      <DependentUpon>Sub_Type_Evaluation_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Task_Type.aspx.cs">
+      <DependentUpon>Task_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Task_Type.aspx.designer.cs">
+      <DependentUpon>Task_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Tenant_Type_List.aspx.cs">
+      <DependentUpon>Tenant_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Tenant_Type_List.aspx.designer.cs">
+      <DependentUpon>Tenant_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Transaction_Type_List.aspx.cs">
+      <DependentUpon>Transaction_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Transaction_Type_List.aspx.designer.cs">
+      <DependentUpon>Transaction_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\transformation_Bank_List.aspx.cs">
+      <DependentUpon>transformation_Bank_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\transformation_Bank_List.aspx.designer.cs">
+      <DependentUpon>transformation_Bank_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Under_Contract_Type_List.aspx.cs">
+      <DependentUpon>Under_Contract_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Under_Contract_Type_List.aspx.designer.cs">
+      <DependentUpon>Under_Contract_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\unit_Condition_List.aspx.cs">
+      <DependentUpon>unit_Condition_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\unit_Condition_List.aspx.designer.cs">
+      <DependentUpon>unit_Condition_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Owner_List.aspx.cs">
+      <DependentUpon>Owner_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Owner_List.aspx.designer.cs">
+      <DependentUpon>Owner_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Unit_Details_List.aspx.cs">
+      <DependentUpon>Unit_Details_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Unit_Details_List.aspx.designer.cs">
+      <DependentUpon>Unit_Details_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Unit_Type_List.aspx.cs">
+      <DependentUpon>Unit_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Unit_Type_List.aspx.designer.cs">
+      <DependentUpon>Unit_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\User_Account_List.aspx.cs">
+      <DependentUpon>User_Account_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\User_Account_List.aspx.designer.cs">
+      <DependentUpon>User_Account_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Vendor_Type_List.aspx.cs">
+      <DependentUpon>Vendor_Type_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Vendor_Type_List.aspx.designer.cs">
+      <DependentUpon>Vendor_Type_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Website_Info.aspx.cs">
+      <DependentUpon>Website_Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Website_Info.aspx.designer.cs">
+      <DependentUpon>Website_Info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\Master_Panal\Zone_List.aspx.cs">
+      <DependentUpon>Zone_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\Master_Panal\Zone_List.aspx.designer.cs">
+      <DependentUpon>Zone_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="English\SMSTest.aspx.cs">
+      <DependentUpon>SMSTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="English\SMSTest.aspx.designer.cs">
+      <DependentUpon>SMSTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\DocumentReferenceTypes.cs" />
+    <Compile Include="Enums\LogTypes.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChartData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="transformation_Income.aspx.cs">
+      <DependentUpon>transformation_Income.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="transformation_Income.aspx.designer.cs">
+      <DependentUpon>transformation_Income.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\AesOperation.cs" />
+    <Compile Include="Utilities\Helper.cs" />
+    <Compile Include="Utilities\MySqlExtension.cs" />
+    <Compile Include="Utilities\Roles.cs" />
+    <Compile Include="Utilities\SmsMessage.cs" />
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Arabic\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="English\Main_Application\Building_File\Building_Permit\" />
+    <Folder Include="English\Main_Application\Building_File\Building_Photo\" />
+    <Folder Include="English\Main_Application\Building_File\Building_Plan\" />
+    <Folder Include="English\Main_Application\Building_File\certificate_completion\" />
+    <Folder Include="English\Main_Application\Building_File\Entrace_Photo\" />
+    <Folder Include="English\Main_Application\Building_File\Image\" />
+    <Folder Include="English\Main_Application\Building_File\Map\" />
+    <Folder Include="English\Main_Application\Building_File\Statement\" />
+    <Folder Include="English\Main_Application\business_records\" />
+    <Folder Include="English\Main_Application\Company_registration\" />
+    <Folder Include="English\Main_Application\Maintenance_Image\" />
+    <Folder Include="English\Main_Application\Ownership_Images\Ownership_Certificate\" />
+    <Folder Include="English\Main_Application\Ownership_Images\Property_Scheme\" />
+    <Folder Include="English\Main_Application\Ownership_Images\Statment\" />
+    <Folder Include="English\Main_Application\Real_Contract\" />
+    <Folder Include="English\Main_Application\Tenant_Att\" />
+    <Folder Include="English\Main_Application\Tenant_Passport\" />
+    <Folder Include="English\Main_Application\Tenant_QID\" />
+    <Folder Include="English\Main_Application\units_Photo\" />
+    <Folder Include="English\Master_Panal\Com_reps_QID\" />
+    <Folder Include="English\Master_Panal\Employee_Photo\" />
+    <Folder Include="English\Master_Panal\Owners_QID\" />
+    <Folder Include="English\Master_Panal\Service_Image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60769</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44389/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

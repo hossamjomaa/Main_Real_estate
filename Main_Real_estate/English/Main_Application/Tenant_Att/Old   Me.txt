@@ -1,0 +1,40 @@
+Old   Me
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Unit_List_In_Building_Details`(IN  Id INT)
+BEGIN
+SELECT 
+U.* , 
+
+U.Image_One_Path , 
+U.Image_Two_Path , 
+U.Image_Three_Path ,
+U.Image_Four_Path ,  
+
+
+UT.Unit_Arabic_Type  , 
+UC.Unit_Arabic_Condition ,
+UD.Unit_Arabic_Detail , 
+B.Building_Arabic_Name ,
+
+C.* , T.Tenants_ID , T.Tenants_Arabic_Name , CR.Com_rep_En_Name ,
+(SELECT IF((C.Payment_Amount*12) != 0, (C.Payment_Amount*12), 0)) Muhasal_Muftarad ,
+(Select Sum(Collection) from collection_table where Unit_Id = U.Unit_ID ) Muhasal_Fuly ,
+(select Sum(Weight)  FROM  tenant_evaluation where Tenant_Id =  T.Tenants_ID )Points ,
+(SELECT IF(Points !=0, Points, 0))R_Points ,
+(SELECT IF((100 - R_Points) !=0, (100 - R_Points), 0)) Persenteg
+
+
+FROM real_estate_db.units U
+
+left join real_estate_db.unit_type UT on (U.unit_type_Unit_Type_Id = UT.Unit_Type_Id)
+left join real_estate_db.unit_condition UC on (U.unit_condition_Unit_Condition_Id = UC.Unit_Condition_Id)
+left join real_estate_db.unit_detail UD on (U.unit_detail_Unit_Detail_Id = UD.Unit_Detail_Id)
+left join real_estate_db.building B on (U.building_Building_Id = B.Building_Id)
+left join real_estate_db.contract C on (C.units_Unit_ID = U.Unit_ID)
+left join real_estate_db.tenants T on (C.tenants_Tenants_ID = T.Tenants_ID)
+left join real_estate_db.company_representative CR on (CR.tenants_Tenants_ID = T.Tenants_ID)
+
+where building_Building_Id = ID and  U.Half = '0' ;
+END

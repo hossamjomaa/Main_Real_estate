@@ -1,0 +1,12 @@
+﻿table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: center !important;
+    padding: 10px !important;
+}
+
+th {
+    background-color: #52a2da;
+    color: #ffffff;
+}
